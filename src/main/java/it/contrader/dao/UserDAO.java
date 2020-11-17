@@ -19,9 +19,10 @@ public class UserDAO {
 	private final String QUERY_READ = "SELECT * FROM user WHERE id=?";
 	private final String QUERY_UPDATE = "UPDATE user SET username=?, password=?, usertype=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
-
+	
+	
 	public UserDAO() {
-
+			
 	}
 
 	public List<User> getAll() {
@@ -64,8 +65,6 @@ public class UserDAO {
 	public User read(int userId) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
-
-
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
 			preparedStatement.setInt(1, userId);
 			ResultSet resultSet = preparedStatement.executeQuery();

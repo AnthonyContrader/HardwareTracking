@@ -10,14 +10,14 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Item;
-//import it.contrader.model.User;
+
 
 public class ItemDAO {
 	
 	public static final String QUERY_ALL = "SELECT * FROM items";
 	public static final String QUERY_CREATE = "INSERT INTO items (name, code, price) VALUES (?,?,?)";
 	public static final String QUERY_READ = "SELECT * FROM items WHERE id=?";
-	public static final String QUERY_UPDATE = "UPDATE items SET firstName=?, lastName=?, salary=? WHERE id=?";
+	public static final String QUERY_UPDATE = "UPDATE items SET name=?, code=?, price=? WHERE id=?";
 	public static final String QUERY_DELETE = "DELETE FROM items WHERE id=?"; 
 	
 	public ItemDAO(){
@@ -35,10 +35,10 @@ public class ItemDAO {
 			Item item;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				String firstName = resultSet.getString("firstName");
-				String lastName = resultSet.getString("lastName");
-				double salary = resultSet.getDouble("salary");
-				item = new Item(firstName, lastName, salary);
+				String name = resultSet.getString("name");
+				String code = resultSet.getString("code");
+				double price = resultSet.getDouble("price");
+				item = new Item(name, code, price);
 				item.setId(id);
 				itemList.add(item);
 			}

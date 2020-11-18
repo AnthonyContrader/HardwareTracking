@@ -56,8 +56,7 @@ public class HomeAdminView extends AbstractView {
         case "a":
         	this.request.put("mode", "ITEMLIST");
         	MainDispatcher.getInstance().callAction("Item", "doControl", request);
-        	break;
-        	
+        	break;       
         
         case "u":
         	this.request.put("mode", "USERLIST");

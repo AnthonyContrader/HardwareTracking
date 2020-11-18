@@ -31,8 +31,8 @@ public class ItemReadView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			ItemDTO employee = (ItemDTO) request.get("item");
-			System.out.println(employee);
+			ItemDTO item = (ItemDTO) request.get("item");
+			System.out.println(item);
 			MainDispatcher.getInstance().callView("Item", null);
 		}
 	}

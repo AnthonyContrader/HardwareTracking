@@ -62,7 +62,7 @@ private int id;
 
 	@Override
 	public String toString() {
-		return id + "\t" + name + "\t" + name + "\t" + code + "\t" + price;
+		return id +  "\t" + name + "\t" + code + "\t" + price;
 	}
 
 }

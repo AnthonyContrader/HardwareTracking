@@ -3,10 +3,8 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.ItemDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.ItemService;
-import it.contrader.service.UserService;
 
 public class ItemController implements Controller {
 
@@ -14,7 +12,7 @@ public class ItemController implements Controller {
 	 * Costruisce un oggetto di tipo UserService per poterne usare i metodi
 	 */
 	
-	private String sub_package = "item.";
+	private static String sub_package = "item.";
 	
 	private ItemService itemService;
 	
@@ -56,9 +54,9 @@ public class ItemController implements Controller {
 		
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
-			name = request.get("username").toString();
-			code = request.get("password").toString();
-			price = Double.parseDouble(request.get("usertype").toString());
+			name = request.get("name").toString();
+			code = request.get("code").toString();
+			price = Double.parseDouble(request.get("price").toString());
 			
 			//costruisce l'oggetto user da inserire
 			ItemDTO itemToInsert = new ItemDTO(name, code, price);
@@ -95,7 +93,7 @@ public class ItemController implements Controller {
 			break;
 			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
-		case "USERLIST":
+		case "ITEMLIST":
 			List<ItemDTO> itemsDTO = itemService.getAll();
 			//Impacchetta la request con la lista degli user
 			request.put("items", itemsDTO);

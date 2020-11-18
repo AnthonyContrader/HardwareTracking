@@ -10,7 +10,7 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Item;
-import it.contrader.model.User;
+//import it.contrader.model.User;
 
 public class ItemDAO {
 	

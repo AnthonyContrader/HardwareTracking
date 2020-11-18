@@ -46,7 +46,7 @@ public class MainDispatcher {
 	 * 					volta in volta nelle varie view.
 	 * 					Essa quando chiamata cerchera di creare un'instanza della classe inserita in controller, controllerà
 	 * 					in seguito se essa possiede un metodo con il nome inviato e passati tutti questi controlli 
-	 * 					invocherà tale metodo passando ad esso la request contente i vari dati che stiamo facendo viaggiare 
+	 * 					invocherà tale metodo passando ad esso la request contenente i vari dati che stiamo facendo viaggiare 
 	 * 					all'interno del programma.
 	 */
 	public void callAction(String controller, String action, Request request) {

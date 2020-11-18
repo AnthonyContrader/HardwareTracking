@@ -14,6 +14,12 @@ public class EmployeeDTO {
 	public EmployeeDTO() {		
 	}
 	
+	public EmployeeDTO(String firstName, String lastName, double salary) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.salary = salary;
+	}
+	
 	public EmployeeDTO(int id, String firstName, String lastName, double salary) {
 		this.id = id;
 		this.firstName = firstName;

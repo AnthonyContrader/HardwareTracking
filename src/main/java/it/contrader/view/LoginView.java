@@ -39,5 +39,5 @@ public class LoginView extends AbstractView {
 		MainDispatcher.getInstance().callAction("Home", "doControl", request);
 	}
 
-
+		
 }

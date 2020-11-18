@@ -1,7 +1,5 @@
 package it.contrader.dto;
 
-import it.contrader.model.Item;
-
 public class ItemDTO {
 	
 private int id;
@@ -18,6 +16,12 @@ private int id;
 
 	public ItemDTO(int id, String name, String code, double price) {
 		this.id = id;
+		this.name = name;
+		this.code = code;
+		this.price = price;
+	}
+	
+	public ItemDTO(String name, String code, double price) {
 		this.name = name;
 		this.code = code;
 		this.price = price;

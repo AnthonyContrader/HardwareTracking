@@ -10,7 +10,7 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Employee;
-import it.contrader.model.User;
+//import it.contrader.model.User;
 
 public class EmployeeDAO {
 	
@@ -154,18 +154,6 @@ public boolean insert(Employee employeeToInsert) {
 		return false;
 	}
 	
-
-
-}
-
-
-
-
-
-
-
-
-
 
 
 }

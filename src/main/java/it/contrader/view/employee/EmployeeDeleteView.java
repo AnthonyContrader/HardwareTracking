@@ -10,7 +10,7 @@ public class EmployeeDeleteView extends AbstractView {
 	
 	private Request request;
 
-	private int id;
+	private String idFC;
 	private final String mode = "DELETE";
 
 	public EmployeeDeleteView() {
@@ -34,7 +34,7 @@ public class EmployeeDeleteView extends AbstractView {
 	@Override
 	public void showOptions() {
 			System.out.println("Inserisci id dell'impiegato:");
-			id = Integer.parseInt(getInput());
+			idFC = getInput();
 
 	}
 
@@ -44,7 +44,7 @@ public class EmployeeDeleteView extends AbstractView {
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", id);
+		request.put("idFC", idFC);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Employee", "doControl", request);
 	}

@@ -77,20 +77,6 @@ public class UserController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
 			break;
 			
-			//--------------------------
-			
-		case "INSERT+":
-			username = request.get("username").toString();
-			password = request.get("password").toString();
-			usertype = request.get("usertype").toString();
-			
-			//costruisce l'oggetto user da inserire
-			UserDTO userToInsert = new UserDTO(username, password, usertype);
-			//invoca il service
-			userService.insert(userToInsert);
-			break;
-			
-			//---------------------------
 			
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":

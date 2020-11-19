@@ -6,7 +6,6 @@ import it.contrader.main.MainDispatcher;
 
 public class EmployeeInsertToUser extends AbstractView{
 	
-	
 	private String username;
 	private String password;
 	private String usertype;
@@ -40,6 +39,7 @@ public class EmployeeInsertToUser extends AbstractView{
 	MainDispatcher.getInstance().callAction("User", "doControl", request);
 		
 	}
+	
 	
 	
 	}

@@ -97,7 +97,7 @@ private static String sub_package = "employee.";
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "EMPLOYEELIST":
 			List<EmployeeDTO> employeesDTO = employeeService.getAll();
-			//Impacchetta la request con la lista degli user
+			//Impacchetta la request con la lista degli impiegati
 			request.put("employees", employeesDTO);
 			MainDispatcher.getInstance().callView("Employee", request);
 			break;

@@ -95,9 +95,16 @@ public class ItemController implements Controller {
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "ITEMLIST":
 			List<ItemDTO> itemsDTO = itemService.getAll();
-			//Impacchetta la request con la lista degli user
+			//Impacchetta la request con la lista degli item
 			request.put("items", itemsDTO);
 			MainDispatcher.getInstance().callView("Item", request);
+			break;
+			
+		case "ITEM_LIST_TO_CHOICE":
+			List<ItemDTO> ItemsDTO = itemService.getAll();
+			//Impacchetta la request con la lista degli item
+			request.put("items", ItemsDTO);
+			MainDispatcher.getInstance().callView("ItemChoice", request);
 			break;
 			
 		//Esegue uno switch sulla base del comando inserito dall'utente e reindirizza tramite il Dispatcher alla View specifica per ogni operazione

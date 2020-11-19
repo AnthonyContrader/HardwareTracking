@@ -9,7 +9,7 @@ import it.contrader.view.AbstractView;
 public class EmployeeUpdateView extends AbstractView {
 	private Request request;
 
-	private int id;
+	private String idFC;
 	private String firstName;
 	private String lastName;
 	private Double salary;
@@ -37,10 +37,10 @@ public class EmployeeUpdateView extends AbstractView {
 	public void showOptions() {
 		try {
 			System.out.println("Inserisci id dell'impiegato:");
-			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci username dell'impiegato:");
+			idFC = getInput();
+			System.out.println("Inserisci nome dell'impiegato:");
 			firstName = getInput();
-			System.out.println("Inserisci password dell'impiegato:");
+			System.out.println("Inserisci cognome dell'impiegato:");
 			lastName = getInput();
 			System.out.println("Inserisci stipendio dell'impiegato:");
 			salary = Double.parseDouble(getInput());
@@ -56,7 +56,7 @@ public class EmployeeUpdateView extends AbstractView {
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", id);
+		request.put("idFC", idFC);
 		request.put("firstName", firstName);
 		request.put("lastName", lastName);
 		request.put("salary", salary);

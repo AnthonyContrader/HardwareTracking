@@ -1,21 +1,19 @@
 package it.contrader.view.employee;
 
-
-import it.contrader.view.user.*;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
 
 public class EmployeeInsertView extends AbstractView{
 	
-	private Request request;
+	private Request request, requestToUser;
 	
 	private String idFC;
 	private String firstName;
 	private String lastName;
 	private Double salary;
 	private final String mode = "INSERT";
-	private final String modeUser = "INSERT+";
+	//private final String modeUser = "INSERT+";
 	
 	//------------------------------
 	
@@ -69,15 +67,17 @@ public class EmployeeInsertView extends AbstractView{
 		request.put("lastName", lastName);
 		request.put("salary", salary);
 		request.put("mode", mode);
-	MainDispatcher.getInstance().callAction("Employee", "doControl", request);
+	MainDispatcher.getInstance().callAction("Employee", "doControl", request); 
+	
+	
+		requestToUser = new Request();
+		request.put("username", username);
+		request.put("usertype", usertype);
+		request.put("password", password);
+		request.put("mode", mode);
+		MainDispatcher.getInstance().callAction("User", "doControl", requestToUser); 
 		
 	}
 	
-	public void writeToUser() {
-		
-		toUser = new EmployeeInsertToUser(username, password, usertype, modeUser);
-		toUser.submit();
-		
-	}
 
 }

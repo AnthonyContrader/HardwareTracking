@@ -1,18 +1,21 @@
 package it.contrader.view;
 
 
+import java.util.List;
+
 import it.contrader.controller.Request;
+import it.contrader.dto.EmployeeDTO;
+import it.contrader.dto.ItemDTO;
 import it.contrader.main.MainDispatcher;
 
 public class HomeUserView extends AbstractView{
 
 	String choice;
+	private Request request;
 
 	@Override
 	public void showResults(Request request) {
-		//System.out.println("\n-----Purtroppo in questo sample l'utente non puà fare nulla, ci scusiamo per il disagio.-----");
-		
-
+		System.out.println("\n Benvenuto  " + request.get("username").toString() + "\n");
 	}
 
 	@Override
@@ -26,11 +29,12 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void submit() {
-
+		request = new Request();
 		switch (choice) {
 
-		case "e":
-			MainDispatcher.getInstance().callAction("Login", "doControl", null);
+		case "1":
+			this.request.put("mode", "ITEM_LIST_TO_CHOICE"); //dovrebbe stampare la lista di articoli disponibili
+			MainDispatcher.getInstance().callAction("Item", "doControl", request);
 			break;
 
 		default:

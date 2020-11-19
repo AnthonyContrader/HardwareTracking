@@ -43,6 +43,8 @@ public class UserInsertView extends AbstractView{
 	/**
 	 * Impacchetta la request con i dati inseriti nel metodo showOption()
 	 */
+	
+
 	@Override
 	public void submit() {
 		request = new Request();
@@ -52,6 +54,6 @@ public class UserInsertView extends AbstractView{
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("User", "doControl", request);
 	}
-
-
+	
+	
 }

@@ -2,7 +2,7 @@ package it.contrader.model;
 
 public class Employee {
 	
-	private int id;
+	private String idFC;
 
 	private String firstName;
 	
@@ -22,19 +22,19 @@ public class Employee {
 	}
 
 
-	public Employee(int id, String firstName, String lastName, double salary) {
-		this.id = id;
+	public Employee(String idFC, String firstName, String lastName, double salary) {
+		this.idFC = idFC;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.salary = salary;
 	}
 
-	public int getId() {
-		return id;
+	public String getIdFC() {
+		return this.idFC;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	
+	public void setIdFC(String idFC) {
+		this.idFC = idFC;
 	}
 
 	public String getFirstName() {
@@ -63,7 +63,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return id + "\t" + firstName + "\t" + lastName + "\t" + salary;
+		return idFC + "\t" + firstName + "\t" + lastName + "\t" + salary;
 			
 	}
 		
@@ -82,7 +82,7 @@ public class Employee {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (id != other.id)
+		if (idFC != other.idFC)
 			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
@@ -93,6 +93,8 @@ public class Employee {
 			return false;
 		return true;
 	}
+
+
 	
 	
 	

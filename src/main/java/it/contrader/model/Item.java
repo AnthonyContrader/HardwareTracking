@@ -14,7 +14,6 @@ public class Item {
 		
 	}
 	
-	
 	public Item(String name, String code, double price) {
 		this.name = name;
 		this.code = code;
@@ -93,15 +92,4 @@ public class Item {
 		return id + "\t" + name + "\t" + name + "\t" + code + "\t" + price;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

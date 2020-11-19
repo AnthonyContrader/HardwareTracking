@@ -38,7 +38,7 @@ private static String sub_package = "employee.";
 		String choice = (String) request.get("choice");
 
 		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
-		int id;
+		String idFC;
 		String firstName;
 		String lastName;
 		Double salary;
@@ -47,20 +47,21 @@ private static String sub_package = "employee.";
 		
 		// Arriva qui dalla UserReadView. Invoca il Service con il parametro id e invia alla UserReadView uno user da mostrare 
 		case "READ":
-			id = Integer.parseInt(request.get("id").toString());
-			EmployeeDTO employeeDTO = employeeService.read(id);
+			idFC = request.get("idFC").toString();
+			EmployeeDTO employeeDTO = employeeService.read(idFC);
 			request.put("employee", employeeDTO);
 			MainDispatcher.getInstance().callView(sub_package + "EmployeeRead", request);
 			break;
 		    
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
+			idFC = request.get("idFC").toString();
 			firstName = request.get("firstName").toString();
 			lastName = request.get("lastName").toString();
 			salary = Double.parseDouble(request.get("salary").toString()); //Double
 			
 			//costruisce l'oggetto user da inserire
-			EmployeeDTO employeeToInsert = new EmployeeDTO(firstName, lastName, salary);
+			EmployeeDTO employeeToInsert = new EmployeeDTO(idFC, firstName, lastName, salary);
 			//invoca il service
 			employeeService.insert(employeeToInsert);
 			request = new Request();
@@ -71,9 +72,9 @@ private static String sub_package = "employee.";
 		
 		// Arriva qui dalla UserDeleteView. Estrae l'id dell'utente da cancellare e lo passa al Service
 		case "DELETE":
-			id = Integer.parseInt(request.get("id").toString());
+			idFC = request.get("idFC").toString();
 			//Qui chiama il service
-			employeeService.delete(id);
+			employeeService.delete(idFC);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "EmployeeDelete", request);
@@ -81,12 +82,12 @@ private static String sub_package = "employee.";
 		
 		// Arriva qui dalla UserUpdateView
 		case "UPDATE":
-			id = Integer.parseInt(request.get("id").toString());
-			firstName = request.get("username").toString();
-			lastName = request.get("password").toString();
-			salary = (Double) request.get("usertype");
+			idFC = request.get("idFC").toString();
+			firstName = request.get("firstName").toString();
+			lastName = request.get("lastName").toString();
+			salary = (Double) request.get("salary");
 			EmployeeDTO employeeToUpdate = new EmployeeDTO(firstName, lastName, salary);
-			employeeToUpdate.setId(id);
+			employeeToUpdate.setId(idFC);
 			employeeService.update(employeeToUpdate);
 			request = new Request();
 			request.put("mode", "mode");

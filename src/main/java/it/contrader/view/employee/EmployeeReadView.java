@@ -13,7 +13,7 @@ import it.contrader.view.AbstractView;
  */
 public class EmployeeReadView extends AbstractView {
 
-	private int id;
+	private String idFC;
 	private Request request;
 	private final String mode = "READ";
 
@@ -44,7 +44,7 @@ public class EmployeeReadView extends AbstractView {
 	@Override
 	public void showOptions() {
 		System.out.println("Inserisci l'ID dell'impiegato:");
-		id = Integer.parseInt(getInput());
+		idFC = getInput();
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class EmployeeReadView extends AbstractView {
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", id);
+		request.put("idFC", idFC);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Employee", "doControl", request);
 	}

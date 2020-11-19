@@ -1,8 +1,9 @@
 package it.contrader.dto;
 
+
 public class EmployeeDTO {
 	
-	private int id;
+	private String idFC;
 
 	private String firstName;
 	
@@ -14,25 +15,27 @@ public class EmployeeDTO {
 	public EmployeeDTO() {		
 	}
 	
+	
 	public EmployeeDTO(String firstName, String lastName, double salary) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.salary = salary;
 	}
-	
-	public EmployeeDTO(int id, String firstName, String lastName, double salary) {
-		this.id = id;
+
+
+	public EmployeeDTO(String idFC, String firstName, String lastName, double salary) {
+		this.idFC = idFC;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.salary = salary;
 	}
 
-	public int getId() {
-		return id;
+	public String getIdFC() {
+		return idFC;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String idFC) {
+		this.idFC = idFC;
 	}
 
 	public String getFirstName() {
@@ -61,8 +64,11 @@ public class EmployeeDTO {
 
 	@Override
 	public String toString() {
-		return id + "\t" + firstName + "\t" + lastName + "\t" + salary;
+		return idFC + "\t" + firstName + "\t" + lastName + "\t" + salary;
 			
 	}
+		
+
+
 
 }

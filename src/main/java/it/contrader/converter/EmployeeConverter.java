@@ -12,7 +12,7 @@ public class EmployeeConverter {
 	
 	public EmployeeDTO toDTO(Employee employee) {
 		
-		EmployeeDTO employeeDTO = new EmployeeDTO(employee.getId(), employee.getFirstName(),
+		EmployeeDTO employeeDTO = new EmployeeDTO(employee.getIdFC(), employee.getFirstName(),
 								employee.getLastName(), employee.getSalary());
 			
 		return employeeDTO;
@@ -21,7 +21,7 @@ public class EmployeeConverter {
 	
 	public Employee toEntity(EmployeeDTO employeeDTO) {
 		
-		Employee employee = new Employee(employeeDTO.getId(), employeeDTO.getFirstName(),
+		Employee employee = new Employee(employeeDTO.getIdFC(), employeeDTO.getFirstName(),
 							employeeDTO.getLastName(), employeeDTO.getSalary());
 		
 		return employee;

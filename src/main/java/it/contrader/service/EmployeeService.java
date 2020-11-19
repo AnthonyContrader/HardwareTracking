@@ -25,9 +25,9 @@ public class EmployeeService {
 	}
 
 
-	public EmployeeDTO read(int id) {
+	public EmployeeDTO read(String idFC) {
 		// Ottiene un'entità e la restituisce convertendola in DTO
-		return EmployeeConverter.toDTO(EmployeeDAO.read(id));
+		return EmployeeConverter.toDTO(EmployeeDAO.read(idFC));
 	}
 
 
@@ -43,9 +43,9 @@ public class EmployeeService {
 	}
 
 
-	public boolean delete(int id) {
+	public boolean delete(String idFC) {
 		// Questo mtodo chiama direttamente il DAO
-		return EmployeeDAO.delete(id);
+		return EmployeeDAO.delete(idFC);
 	}
 
 }

@@ -1,17 +1,32 @@
 package it.contrader.view.employee;
 
+
+import it.contrader.view.user.*;
 import it.contrader.controller.Request;
 import it.contrader.main.MainDispatcher;
 import it.contrader.view.AbstractView;
 
 public class EmployeeInsertView extends AbstractView{
+	
 	private Request request;
-
+	
+	private String idFC;
 	private String firstName;
 	private String lastName;
 	private Double salary;
 	private final String mode = "INSERT";
-
+	private final String modeUser = "INSERT+";
+	
+	//------------------------------
+	
+	private String username = firstName+lastName;
+	private String password = idFC;
+	private String usertype = "USER";
+	EmployeeInsertToUser toUser;
+	
+	//------------------------------
+	
+	
 	public EmployeeInsertView() {
 	}
 	
@@ -36,6 +51,8 @@ public class EmployeeInsertView extends AbstractView{
 			firstName = getInput();
 			System.out.println("Inserisci cognome dell'impiegato:");
 			lastName = getInput();
+			System.out.println("Inserisci codice fiscale dell'impiegato:");
+			idFC = getInput();
 			System.out.println("Inserisci stipendio dell'impiegato:");
 			salary = Double.parseDouble(getInput());
 	}
@@ -43,15 +60,24 @@ public class EmployeeInsertView extends AbstractView{
 	/**
 	 * Impacchetta la request con i dati inseriti nel metodo showOption()
 	 */
+	
 	@Override
 	public void submit() {
 		request = new Request();
+		request.put("idFC", idFC);
 		request.put("firstName", firstName);
 		request.put("lastName", lastName);
 		request.put("salary", salary);
 		request.put("mode", mode);
-		MainDispatcher.getInstance().callAction("Employee", "doControl", request);
+	MainDispatcher.getInstance().callAction("Employee", "doControl", request);
+		
 	}
-
+	
+	public void writeToUser() {
+		
+		toUser = new EmployeeInsertToUser(username, password, usertype, modeUser);
+		toUser.submit();
+		
+	}
 
 }

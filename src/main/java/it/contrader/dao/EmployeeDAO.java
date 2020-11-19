@@ -10,15 +10,15 @@ import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Employee;
-//import it.contrader.model.User;
+
 
 public class EmployeeDAO {
 	
 	public static final String QUERY_ALL = "SELECT * FROM employees";
-	public static final String QUERY_CREATE = "INSERT INTO employees (firstName, lastName, salary) VALUES (?,?,?)";
-	public static final String QUERY_READ = "SELECT * FROM employees WHERE id=?";
-	public static final String QUERY_UPDATE = "UPDATE employees SET firstName=?, lastName=?, salary=? WHERE id=?";
-	public static final String QUERY_DELETE = "DELETE FROM employees WHERE id=?"; 
+	public static final String QUERY_CREATE = "INSERT INTO employees (idFC, firstName, lastName, salary) VALUES (?,?,?,?)";
+	public static final String QUERY_READ = "SELECT * FROM employees WHERE idFC=?";
+	public static final String QUERY_UPDATE = "UPDATE employees SET firstName=?, lastName=?, salary=? WHERE idFC=?";
+	public static final String QUERY_DELETE = "DELETE FROM employees WHERE idFC=?"; 
 	
 	public EmployeeDAO(){
 		
@@ -34,12 +34,12 @@ public class EmployeeDAO {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Employee employee;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("id");
+				String idFC = resultSet.getString("idFC");
 				String firstName = resultSet.getString("firstName");
 				String lastName = resultSet.getString("lastName");
 				double salary = resultSet.getDouble("salary");
 				employee = new Employee(firstName, lastName, salary);
-				employee.setId(id);
+				employee.setIdFC(idFC);
 				employeeList.add(employee);
 			}
 		} catch (SQLException e) {
@@ -54,9 +54,10 @@ public boolean insert(Employee employeeToInsert) {
 	Connection connection = ConnectionSingleton.getInstance();
 	try {	
 		PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-		preparedStatement.setString(1, employeeToInsert.getFirstName());
-		preparedStatement.setString(2, employeeToInsert.getLastName());
-		preparedStatement.setDouble(3, employeeToInsert.getSalary());
+		preparedStatement.setString(1, employeeToInsert.getIdFC());
+		preparedStatement.setString(2, employeeToInsert.getFirstName());
+		preparedStatement.setString(3, employeeToInsert.getLastName());
+		preparedStatement.setDouble(4, employeeToInsert.getSalary());
 		preparedStatement.execute();
 		return true;
 	} catch (SQLException e) {
@@ -68,21 +69,20 @@ public boolean insert(Employee employeeToInsert) {
 
 //-------------------------VISUALIZZA
 	
-	public Employee read(int employeeId) {
+	public Employee read(String employeeIdFC) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, employeeId);
+			preparedStatement.setString(1, employeeIdFC);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String firstName, lastName;
 			double salary;
-
 			firstName = resultSet.getString("firstName");
 			lastName = resultSet.getString("lastName");
 			salary = resultSet.getDouble("salary");
 			Employee employee = new Employee(firstName, lastName, salary);
-			employee.setId(resultSet.getInt("id"));
+			employee.setIdFC(resultSet.getString("idFC"));
 
 			return employee;
 		} catch (SQLException e) {
@@ -97,10 +97,10 @@ public boolean insert(Employee employeeToInsert) {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (employeeToUpdate.getId() == 0)
+		if (employeeToUpdate.getIdFC() == null)
 			return false; 
 
-		Employee employeeRead = read(employeeToUpdate.getId());
+		Employee employeeRead = read(employeeToUpdate.getIdFC());
 		if (!employeeRead.equals(employeeToUpdate)) {
 			try {
 				// Fill the userToUpdate object
@@ -121,7 +121,7 @@ public boolean insert(Employee employeeToInsert) {
 				preparedStatement.setString(1, employeeToUpdate.getFirstName());
 				preparedStatement.setString(2, employeeToUpdate.getLastName());
 				preparedStatement.setDouble(3, employeeToUpdate.getSalary());
-				preparedStatement.setInt(4, employeeToUpdate.getId());
+				preparedStatement.setString(4, employeeToUpdate.getIdFC());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
@@ -140,11 +140,11 @@ public boolean insert(Employee employeeToInsert) {
 	
 	//---------------------ELIMINA
 	
-	public boolean delete(int id) {
+	public boolean delete(String idFC) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, id);
+			preparedStatement.setString(1, idFC);
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;

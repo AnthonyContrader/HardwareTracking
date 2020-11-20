@@ -6,24 +6,20 @@ private int id;
 	
 	private String name;
 	
-	private String code;
-	
 	private double price;
 	
 	public ItemDTO() {
 		
 	}
 
-	public ItemDTO(int id, String name, String code, double price) {
+	public ItemDTO(int id, String name, double price) {
 		this.id = id;
 		this.name = name;
-		this.code = code;
 		this.price = price;
 	}
 	
-	public ItemDTO(String name, String code, double price) {
+	public ItemDTO(String name, double price) {
 		this.name = name;
-		this.code = code;
 		this.price = price;
 	}
 
@@ -43,13 +39,6 @@ private int id;
 		this.name = name;
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 
 	public double getPrice() {
 		return price;
@@ -62,7 +51,7 @@ private int id;
 
 	@Override
 	public String toString() {
-		return id +  "\t" + name + "\t" + code + "\t" + price;
+		return id +  "\t" + name + "\t" + price;
 	}
 
 }

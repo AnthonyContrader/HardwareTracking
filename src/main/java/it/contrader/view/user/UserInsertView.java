@@ -15,10 +15,10 @@ public class UserInsertView extends AbstractView{
 	public UserInsertView() {
 	}
 	
-	/**
-	 * Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
-	 * l'esito dell'operazione
-	 */
+	
+	 // Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
+	 // l'esito dell'operazione
+	 
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
@@ -27,9 +27,9 @@ public class UserInsertView extends AbstractView{
 		}
 	}
 
-	/**
-	 * Chiede all'utente di inserire gli attributi dell'utente da inserire
-	 */
+	
+	 // Chiede all'utente di inserire gli attributi dell'utente da inserire
+	 
 	@Override
 	public void showOptions() {
 			System.out.println("Inserisci username dell'utente:");
@@ -40,9 +40,9 @@ public class UserInsertView extends AbstractView{
 			usertype = getInput();
 	}
 
-	/**
-	 * Impacchetta la request con i dati inseriti nel metodo showOption()
-	 */
+	
+	 // Impacchetta la request con i dati inseriti nel metodo showOption()
+	 
 	
 
 	@Override

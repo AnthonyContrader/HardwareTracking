@@ -15,9 +15,9 @@ import it.contrader.model.Item;
 public class ItemDAO {
 	
 	public static final String QUERY_ALL = "SELECT * FROM items";
-	public static final String QUERY_CREATE = "INSERT INTO items (name, code, price) VALUES (?,?,?)";
+	public static final String QUERY_CREATE = "INSERT INTO items (name, price) VALUES (?,?)";
 	public static final String QUERY_READ = "SELECT * FROM items WHERE id=?";
-	public static final String QUERY_UPDATE = "UPDATE items SET name=?, code=?, price=? WHERE id=?";
+	public static final String QUERY_UPDATE = "UPDATE items SET name=?, price=? WHERE id=?";
 	public static final String QUERY_DELETE = "DELETE FROM items WHERE id=?"; 
 	
 	public ItemDAO(){
@@ -36,9 +36,8 @@ public class ItemDAO {
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
-				String code = resultSet.getString("code");
 				double price = resultSet.getDouble("price");
-				item = new Item(name, code, price);
+				item = new Item(name, price);
 				item.setId(id);
 				itemList.add(item);
 			}
@@ -55,8 +54,7 @@ public boolean insert(Item itemToInsert) {
 	try {	
 		PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 		preparedStatement.setString(1, itemToInsert.getName());
-		preparedStatement.setString(2, itemToInsert.getCode());
-		preparedStatement.setDouble(3, itemToInsert.getPrice());
+		preparedStatement.setDouble(2, itemToInsert.getPrice());
 		preparedStatement.execute();
 		return true;
 	} catch (SQLException e) {
@@ -75,13 +73,12 @@ public boolean insert(Item itemToInsert) {
 			preparedStatement.setInt(1, itemId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String name, code;
+			String name;
 			double price;
 
 			name = resultSet.getString("name");
-			code = resultSet.getString("code");
 			price = resultSet.getDouble("price");
-			Item item = new Item(name, code, price);
+			Item item = new Item(name, price);
 			item.setId(resultSet.getInt("id"));
 
 			return item;
@@ -107,10 +104,6 @@ public boolean insert(Item itemToInsert) {
 				if (itemToUpdate.getName() == null || itemToUpdate.getName().equals("")) {
 					itemToUpdate.setName(itemRead.getName());
 				}
-					
-				if (itemToUpdate.getCode() == null || itemToUpdate.getCode().equals("")) {
-					itemToUpdate.setCode(itemRead.getCode());
-				}
 
 				if (itemToUpdate.getPrice() == 0.0) {
 					itemToUpdate.setPrice(itemRead.getPrice());
@@ -119,8 +112,7 @@ public boolean insert(Item itemToInsert) {
 				// Update the user
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, itemToUpdate.getName());
-				preparedStatement.setString(2, itemToUpdate.getCode());
-				preparedStatement.setDouble(3, itemToUpdate.getPrice());
+				preparedStatement.setDouble(2, itemToUpdate.getPrice());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

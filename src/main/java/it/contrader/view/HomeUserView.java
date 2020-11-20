@@ -1,11 +1,6 @@
 package it.contrader.view;
 
-
-import java.util.List;
-
 import it.contrader.controller.Request;
-import it.contrader.dto.EmployeeDTO;
-import it.contrader.dto.ItemDTO;
 import it.contrader.main.MainDispatcher;
 
 public class HomeUserView extends AbstractView{

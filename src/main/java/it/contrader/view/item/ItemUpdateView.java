@@ -11,7 +11,6 @@ public class ItemUpdateView extends AbstractView {
 
 	private int id;
 	private String name;
-	private String code;
 	private Double price;
 	private final String mode = "UPDATE";
 
@@ -40,8 +39,6 @@ public class ItemUpdateView extends AbstractView {
 			id = Integer.parseInt(getInput());
 			System.out.println("Inserisci nome dell'articolo:");
 			name = getInput();
-			System.out.println("Inserisci codice dell'articolo:");
-			code = getInput();
 			System.out.println("Inserisci prezzo dell'articolo:");
 			price = Double.parseDouble(getInput());
 		} catch (Exception e) {
@@ -58,7 +55,6 @@ public class ItemUpdateView extends AbstractView {
 		request = new Request();
 		request.put("id", id);
 		request.put("name", name);
-		request.put("code", code);
 		request.put("price", price);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Item", "doControl", request);

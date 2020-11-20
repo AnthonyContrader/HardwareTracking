@@ -39,7 +39,6 @@ public class ItemController implements Controller {
 		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
 		int id;
 		String name;
-		String code;
 		Double price;
 
 		switch (mode) {
@@ -55,11 +54,10 @@ public class ItemController implements Controller {
 		// Arriva qui dalla UserInsertView. Estrae i parametri da inserire e chiama il service per inserire uno user con questi parametri
 		case "INSERT":
 			name = request.get("name").toString();
-			code = request.get("code").toString();
 			price = Double.parseDouble(request.get("price").toString());
 			
 			//costruisce l'oggetto user da inserire
-			ItemDTO itemToInsert = new ItemDTO(name, code, price);
+			ItemDTO itemToInsert = new ItemDTO(name, price);
 			//invoca il service
 			itemService.insert(itemToInsert);
 			request = new Request();
@@ -82,9 +80,8 @@ public class ItemController implements Controller {
 		case "UPDATE":
 			id = Integer.parseInt(request.get("id").toString());
 			name = request.get("name").toString();
-			code = request.get("code").toString();
 			price = (Double) request.get("price");
-			ItemDTO itemToUpdate = new ItemDTO(name, code, price);
+			ItemDTO itemToUpdate = new ItemDTO(name, price);
 			itemToUpdate.setId(id);
 			itemService.update(itemToUpdate);
 			request = new Request();

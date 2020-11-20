@@ -34,8 +34,6 @@ public class ItemInsertView extends AbstractView{
 	public void showOptions() {
 			System.out.println("Inserisci nome dell'articolo:");
 			name = getInput();
-			System.out.println("Inserisci codice dell'articolo:");
-			code = getInput();
 			System.out.println("Inserisci prezzo dell'articolo:");
 			price = Double.parseDouble(getInput());
 	}
@@ -47,7 +45,6 @@ public class ItemInsertView extends AbstractView{
 	public void submit() {
 		request = new Request();
 		request.put("name", name);
-		request.put("code", code);
 		request.put("price", price);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("Item", "doControl", request);

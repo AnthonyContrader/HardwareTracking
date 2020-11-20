@@ -11,7 +11,7 @@ public class ItemConverter {
 		
 		public ItemDTO toDTO(Item item) {
 			
-			ItemDTO itemDTO = new ItemDTO(item.getId(), item.getName(), item.getCode(), item.getPrice());
+			ItemDTO itemDTO = new ItemDTO(item.getId(), item.getName(), item.getPrice());
 			
 			return itemDTO;
 			
@@ -19,7 +19,7 @@ public class ItemConverter {
 		
 		public Item toEntity(ItemDTO itemDTO) {
 			
-			Item item = new Item(itemDTO.getId(), itemDTO.getName(), itemDTO.getCode(), itemDTO.getPrice());
+			Item item = new Item(itemDTO.getId(), itemDTO.getName(), itemDTO.getPrice());
 			
 			return item;
 			

@@ -23,6 +23,7 @@ public class ItemChoiceView extends AbstractView{
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Articoli disponibili ----------------\n");
+			System.out.println("Attenzione: in caso di danneggiamento le sarà addebitato il costo\n");
 			System.out.println("ID\tNome\tCodice\tCosto");
 			System.out.println("----------------------------------------------------\n");
 			

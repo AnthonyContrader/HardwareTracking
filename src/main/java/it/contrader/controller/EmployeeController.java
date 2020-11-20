@@ -3,14 +3,17 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.EmployeeDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.EmployeeService;
+import it.contrader.service.UserService;
 
 public class EmployeeController implements Controller{
 	
 private static String sub_package = "employee.";
 	
 	private EmployeeService employeeService;
+	private UserService userService;
 	
 	
 	/**
@@ -18,6 +21,7 @@ private static String sub_package = "employee.";
 	 */
 	public EmployeeController() {
 		this.employeeService = new EmployeeService();
+		this.userService = new UserService();
 	}
 	
 	
@@ -42,6 +46,8 @@ private static String sub_package = "employee.";
 		String firstName;
 		String lastName;
 		Double salary;
+		
+		//campi relativi alla classe user per permettere la registrazione automatica di un nuovo impiegato nella lista user
 
 		switch (mode) {
 		
@@ -58,12 +64,15 @@ private static String sub_package = "employee.";
 			idFC = request.get("idFC").toString();
 			firstName = request.get("firstName").toString();
 			lastName = request.get("lastName").toString();
-			salary = Double.parseDouble(request.get("salary").toString()); //Double
+			salary = (Double)request.get("salary");
+			//id = Integer.parseInt(request.get("id").toString());
 			
 			//costruisce l'oggetto user da inserire
-			EmployeeDTO employeeToInsert = new EmployeeDTO(idFC, firstName, lastName, salary);
+			EmployeeDTO employeetoinsert = new EmployeeDTO(idFC, firstName, lastName, salary);
+			UserDTO usertoinsert = new UserDTO(firstName+lastName, idFC, "USER");
 			//invoca il service
-			employeeService.insert(employeeToInsert);
+			employeeService.insert(employeetoinsert);
+			userService.insert(usertoinsert);
 			request = new Request();
 			request.put("mode", "mode");
 			//Rimanda alla view con la risposta

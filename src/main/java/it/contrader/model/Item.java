@@ -6,25 +6,21 @@ public class Item {
 	
 	private String name;
 	
-	private String code;
-	
 	private double price;
 	
 	public Item() {
 		
 	}
 	
-	public Item(String name, String code, double price) {
+	public Item(String name, double price) {
 		this.name = name;
-		this.code = code;
 		this.price = price;
 	}
 
 
-	public Item(int id, String name, String code, double price) {
+	public Item(int id, String name, double price) {
 		this.id = id;
 		this.name = name;
-		this.code = code;
 		this.price = price;
 	}
 
@@ -42,14 +38,6 @@ public class Item {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	public double getPrice() {
@@ -70,11 +58,6 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item other = (Item) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
-			return false;
 		if (id != other.id)
 			return false;
 		if (name == null) {
@@ -89,7 +72,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return id + "\t" + name + "\t" + name + "\t" + code + "\t" + price;
+		return id + "\t" + name + "\t" + name + "\t" + price;
 	}
 	
 }

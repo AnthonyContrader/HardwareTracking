@@ -72,7 +72,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return id + "\t" + name + "\t" + name + "\t" + price;
+		return id + "\t" + name + "\t" + price;
 	}
 	
 }

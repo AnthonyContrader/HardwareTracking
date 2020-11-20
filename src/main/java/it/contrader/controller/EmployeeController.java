@@ -65,7 +65,6 @@ private static String sub_package = "employee.";
 			firstName = request.get("firstName").toString();
 			lastName = request.get("lastName").toString();
 			salary = (Double)request.get("salary");
-			//id = Integer.parseInt(request.get("id").toString());
 			
 			//costruisce l'oggetto user da inserire
 			EmployeeDTO employeetoinsert = new EmployeeDTO(idFC, firstName, lastName, salary);

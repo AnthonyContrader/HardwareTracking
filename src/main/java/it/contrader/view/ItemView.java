@@ -22,7 +22,7 @@ public class ItemView extends AbstractView {
 	public void showResults(Request request) {
 		if (request != null) {
 			System.out.println("\n------------------- Gestione Articoli ----------------\n");
-			System.out.println("ID\tNome\tCodice\tCosto");
+			System.out.println("ID\tNome\tCosto");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")

@@ -8,7 +8,6 @@ public class ItemInsertView extends AbstractView{
 	private Request request;
 
 	private String name;
-	private String code;
 	private Double price;
 	private final String mode = "INSERT";
 

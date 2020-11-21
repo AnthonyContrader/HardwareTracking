@@ -7,7 +7,6 @@ import it.contrader.view.AbstractView;
 public class EmployeeInsertView extends AbstractView{
 	
 	private Request request;
-	
 	private String idFC;
 	private String firstName;
 	private String lastName;
@@ -18,10 +17,11 @@ public class EmployeeInsertView extends AbstractView{
 	public EmployeeInsertView() {
 	}
 	
-	/**
-	 * Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
-	 * l'esito dell'operazione
-	 */
+	
+	 // Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
+	 // l'esito dell'operazione
+	 
+	
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
@@ -35,6 +35,7 @@ public class EmployeeInsertView extends AbstractView{
 	 */
 	@Override
 	public void showOptions() {
+		
 			System.out.println("Inserisci nome dell'impiegato:");
 			firstName = getInput();
 			System.out.println("Inserisci cognome dell'impiegato:");
@@ -43,11 +44,12 @@ public class EmployeeInsertView extends AbstractView{
 			idFC = getInput();
 			System.out.println("Inserisci stipendio dell'impiegato:");
 			salary = Double.parseDouble(getInput());
+			
 	}
 
-	/**
-	 * Impacchetta la request con i dati inseriti nel metodo showOption()
-	 */
+	
+	 // Impacchetta la request con i dati inseriti nel metodo showOption()
+	 
 	
 	@Override
 	public void submit() {

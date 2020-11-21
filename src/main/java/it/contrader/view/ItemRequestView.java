@@ -6,15 +6,14 @@ import it.contrader.controller.Request;
 import it.contrader.dto.ItemDTO;
 import it.contrader.main.MainDispatcher;
 
-public class ItemChoiceView extends AbstractView{
-	
+public class ItemRequestView extends AbstractView{
 	
 	private Request request;
-	private int id;
 	private String choice;
-	private String fiscalCode;
+	private String fiscalCodeForLent;
+	private final String mode = "REQUEST";
 
-	public ItemChoiceView(){
+	public ItemRequestView(){
 		
 	}
 
@@ -30,11 +29,16 @@ public class ItemChoiceView extends AbstractView{
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
-			List<ItemDTO> items = (List<ItemDTO>) request.get("items");
-			for (ItemDTO i: items)
+			List<ItemDTO> itemsAvailable = (List<ItemDTO>) request.get("itemsAvailable");
+			for (ItemDTO i: itemsAvailable)
 				System.out.println(i);
 			System.out.println();
 		}
+		else {
+			System.out.println("Richiesta andata a buon fine");
+			MainDispatcher.getInstance().callView("HomeUser", null); 
+		}  
+			
 	}
 
 	/**
@@ -43,10 +47,10 @@ public class ItemChoiceView extends AbstractView{
 	 */
 	@Override
 	public void showOptions() {
-		System.out.print("  Digita il corrispondente numero per richiedere -> ");
-		this.choice = getInput();
+		System.out.print("Scegliere tra gli articoli disponibili digitando il numero id -> ");
+		choice = this.getInput();
 		System.out.print("Inserisci il tuo codice fiscale -> ");
-		this.fiscalCode = getInput();
+		fiscalCodeForLent = this.getInput();
 	}
 	
 	/**
@@ -56,39 +60,15 @@ public class ItemChoiceView extends AbstractView{
 	public void submit() {
 		
 		request = new Request();
-		request.put("id", choice);
-		request.put("fiscalCode", fiscalCode);
-		
-		switch(choice) {
-		
-		case "1":
-			request.put("name", "webcam");
-			request.put("price", 50);
-			break;
-			
-		case "2":
-			request.put("name", "tablet");
-			request.put("price", 150);
-			break;
-			
-		case "3":
-			request.put("name", "smartphone");
-			request.put("price", 300);
-			break;
-			
-		case "4":
-			request.put("name", "stampante");
-			request.put("price", 75);
-			break;
-			
-		case "5":
-			request.put("name", "notebook");
-			request.put("price", 500);
+		request.put("mode", mode);
+		request.put("choice", choice);
+		request.put("fiscalCodeForLent", fiscalCodeForLent);
+		MainDispatcher.getInstance().callAction("Item", "doControl", this.request);
 		
 		}
 		
-		MainDispatcher.getInstance().callAction("ItemChoice", "doControl", this.request);
+	
 	}
 	
 
-}
+

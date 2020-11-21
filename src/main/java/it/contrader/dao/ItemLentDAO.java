@@ -9,55 +9,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.main.ConnectionSingleton;
-import it.contrader.model.ItemChoice;
+import it.contrader.model.ItemLent;
 
-public class ItemChoiceDAO {
+public class ItemLentDAO {
 	
+	public static final String QUERY_ALL = "SELECT * FROM itemlent";
+	public static final String QUERY_CREATE = "INSERT INTO itemlent (id, name, price, fiscalCodeForLent) VALUES (?,?,?,?)";
 	
-	public static final String QUERY_ALL = "SELECT * FROM itemchoice";
-	public static final String QUERY_CREATE = "INSERT INTO itemschoice (id, name, price, receiver) VALUES (?,?,?,?)";
-	
-public ItemChoiceDAO(){
+public ItemLentDAO(){
 		
 	}
 	
 	//------------------GET ALL
 	
-	public List<ItemChoice> getAll() {
-		List<ItemChoice> itemChoiceList = new ArrayList<>();
+	public List<ItemLent> getAll() {
+		List<ItemLent> itemLentList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
-			ItemChoice item;
+			ItemLent itemLent;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
 				String name = resultSet.getString("name");
 				double price = resultSet.getDouble("price");
-				String receiver = resultSet.getString("receiver");
-				item = new ItemChoice(id, name, price, receiver);
-				item.setId(id);
-				itemChoiceList.add(item);
+				String fiscalCodeForLent = resultSet.getString("fiscalCodeForLent");
+				itemLent = new ItemLent(id, name, price, fiscalCodeForLent);
+				itemLentList.add(itemLent);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return itemChoiceList;
+		return itemLentList;
 	}
 
 	//------------------INSERISCI NUOVO
 
-public boolean insert(ItemChoice itemToInsert) {
+public boolean insert(ItemLent itemLentToInsert) {
 	Connection connection = ConnectionSingleton.getInstance();
 	try {	
 		PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-		preparedStatement.setDouble(1, itemToInsert.getId());
-		preparedStatement.setString(2, itemToInsert.getName());
-		preparedStatement.setDouble(3, itemToInsert.getPrice());
-		preparedStatement.setString(4, itemToInsert.getReceiver());
+		preparedStatement.setInt(1, itemLentToInsert.getId());
+		preparedStatement.setString(2, itemLentToInsert.getName());
+		preparedStatement.setDouble(3, itemLentToInsert.getPrice());
+		preparedStatement.setString(4, itemLentToInsert.getFiscalCodeForLent());
 		preparedStatement.execute();
 		return true;
 	} catch (SQLException e) {
+		e.printStackTrace();
 		return false;
 	}
 	

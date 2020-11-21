@@ -8,6 +8,8 @@ private int id;
 	
 	private double price;
 	
+	private String fiscalCodeForLent;
+	
 	public ItemDTO() {
 		
 	}
@@ -22,10 +24,22 @@ private int id;
 		this.name = name;
 		this.price = price;
 	}
+	
+	//-----------------------
+	
+	public ItemDTO(int id, String name, double price, String fiscalCodeForLent) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.fiscalCodeForLent = fiscalCodeForLent;
+	}
+	
+	//-----------------------
 
 	public int getId() {
 		return id;
 	}
+	
 
 	public void setId(int id) {
 		this.id = id;
@@ -47,6 +61,18 @@ private int id;
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	   //-----------------------
+
+		public String getFiscalCodeForLent() {
+			return fiscalCodeForLent;
+		}
+
+		public void setFiscalCodeForLent(String fiscalCodeForLent) {
+			this.fiscalCodeForLent = fiscalCodeForLent;
+		}
+		
+		//-----------------------
 
 
 	@Override

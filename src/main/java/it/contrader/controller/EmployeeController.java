@@ -1,5 +1,6 @@
 package it.contrader.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.EmployeeDTO;
@@ -127,6 +128,13 @@ private static String sub_package = "employee.";
 				
 			case "M":
 				MainDispatcher.getInstance().callView(sub_package + "EmployeeUpdate", null);
+				break;
+				
+			case "T":
+				request = new Request();
+				List<String> trackItems = employeeService.trackitems();
+				request.put("trackItems", trackItems);
+				MainDispatcher.getInstance().callView(sub_package + "EmployeeTrack", request);
 				break;
 				
 			case "C":

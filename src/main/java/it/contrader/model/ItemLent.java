@@ -1,28 +1,32 @@
 package it.contrader.model;
 
-public class Item {
+public class ItemLent {
 	
-	private int id;
+private int id;
 	
 	private String name;
 	
 	private double price;
 	
+	private String fiscalCodeForLent;
 	
-	public Item() {
+	
+	public ItemLent() {
 		
 	}
 	
-	public Item(String name, double price) {
+	public ItemLent(String name, double price, String fiscalCodeForLent) {
 		this.name = name;
 		this.price = price;
+		this.fiscalCodeForLent = fiscalCodeForLent;
 	}
 
 
-	public Item(int id, String name, double price) {
+	public ItemLent(int id, String name, double price, String fiscalCodeForLent) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
+		this.fiscalCodeForLent = fiscalCodeForLent;
 	}
 	
 
@@ -49,8 +53,14 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
 
+	public String getFiscalCodeForLent() {
+		return fiscalCodeForLent;
+	}
+
+	public void setFiscalCodeForLent(String fiscalCodeForLent) {
+		this.fiscalCodeForLent = fiscalCodeForLent;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -60,7 +70,12 @@ public class Item {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item other = (Item) obj;
+		ItemLent other = (ItemLent) obj;
+		if (fiscalCodeForLent == null) {
+			if (other.fiscalCodeForLent != null)
+				return false;
+		} else if (!fiscalCodeForLent.equals(other.fiscalCodeForLent))
+			return false;
 		if (id != other.id)
 			return false;
 		if (name == null) {
@@ -72,10 +87,15 @@ public class Item {
 			return false;
 		return true;
 	}
-
+	
+	
 	@Override
 	public String toString() {
-		return id + "\t" + name + "\t" + price;
+		return id + "\t" + name + "\t" + price + "\t" + fiscalCodeForLent;
 	}
 	
+	
+	
+	
+
 }

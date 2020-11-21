@@ -23,6 +23,10 @@ public class EmployeeService {
 		// Ottiene una lista di entità e le restituisce convertendole in DTO
 		return EmployeeConverter.toDTOList(EmployeeDAO.getAll());
 	}
+	
+	public List<String> trackitems(){
+		return EmployeeDAO.trackItems();
+	}
 
 
 	public EmployeeDTO read(String idFC) {

@@ -3,7 +3,9 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.ItemDTO;
+import it.contrader.dto.ItemLentDTO;
 import it.contrader.main.MainDispatcher;
+import it.contrader.service.ItemLentService;
 import it.contrader.service.ItemService;
 
 public class ItemController implements Controller {
@@ -15,9 +17,11 @@ public class ItemController implements Controller {
 	private static String sub_package = "item.";
 	
 	private ItemService itemService;
+	private ItemLentService itemLentService;
 	
 	public ItemController() {
 		this.itemService = new ItemService();
+		this.itemLentService = new ItemLentService();
 	}
 	
 	/**
@@ -35,11 +39,13 @@ public class ItemController implements Controller {
 		String mode = (String) request.get("mode");
 		
 		String choice = (String) request.get("choice");
+		
 
 		//Definisce i campi della classe (serviranno sempre, tanto vale definirli una sola volta)
 		int id;
 		String name;
 		Double price;
+		String fiscalCodeForLent;
 
 		switch (mode) {
 		
@@ -89,6 +95,25 @@ public class ItemController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "ItemUpdate", request);
 			break;
 			
+			//----------------------
+			
+		  case "REQUEST": 
+			int choiceToLent = Integer.parseInt(choice);
+			List<ItemDTO> itemsToLent = itemService.getAll();
+			id = itemsToLent.get(choiceToLent-1).getId();
+			name = itemsToLent.get(choiceToLent-1).getName();
+			price = itemsToLent.get(choiceToLent-1).getPrice();
+			fiscalCodeForLent = request.get("fiscalCodeForLent").toString();
+			ItemLentDTO itemtolent = new ItemLentDTO(id, name, price, fiscalCodeForLent);
+			if(itemLentService.insert(itemtolent))
+				MainDispatcher.getInstance().callView("ItemRequest", null); 
+			else
+				System.out.println("errore");
+			
+			break; 
+			
+			//----------------------
+			
 		//Arriva qui dalla UserView Invoca il Service e invia alla UserView il risultato da mostrare 
 		case "ITEMLIST":
 			List<ItemDTO> itemsDTO = itemService.getAll();
@@ -97,11 +122,11 @@ public class ItemController implements Controller {
 			MainDispatcher.getInstance().callView("Item", request);
 			break;
 			
-		case "ITEM_LIST_TO_CHOICE":
-			List<ItemDTO> ItemsDTO = itemService.getAll();
+		case "ITEMCHOICELIST": 
+			List<ItemDTO> itemsAvailable = itemService.getAll();
 			//Impacchetta la request con la lista degli item
-			request.put("items", ItemsDTO);
-			MainDispatcher.getInstance().callView("ItemChoice", request);
+			request.put("itemsAvailable", itemsAvailable);
+			MainDispatcher.getInstance().callView("ItemRequest", request);
 			break;
 			
 		//Esegue uno switch sulla base del comando inserito dall'utente e reindirizza tramite il Dispatcher alla View specifica per ogni operazione

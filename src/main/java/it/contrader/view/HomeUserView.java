@@ -10,14 +10,14 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void showResults(Request request) {
-		System.out.println("\n Benvenuto  " + request.get("username").toString() + "\n");
+		if(request != null)
+		System.out.println("\n Benvenuto in SAMPLE PROJECT " + request.get("username").toString() + "\n");
 	}
 
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("Premere 1 per richiedere, 2 per restituire");
-		//System.out.println("\n Esatto, puoi solo uscire...");
+		System.out.println("Premere [1] per richiedere, [2] per restituire, [3] per uscire");
 		choice = this.getInput();
 
 	}
@@ -28,10 +28,15 @@ public class HomeUserView extends AbstractView{
 		switch (choice) {
 
 		case "1":
-			this.request.put("mode", "ITEM_LIST_TO_CHOICE"); //dovrebbe stampare la lista di articoli disponibili
+			this.request.put("choice", choice);
+			this.request.put("mode", "ITEMCHOICELIST"); //dovrebbe stampare la lista di articoli disponibili
 			MainDispatcher.getInstance().callAction("Item", "doControl", request);
 			break;
-
+			
+		case "2":
+			
+			break;
+			
 		default:
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 		}

@@ -8,44 +8,32 @@ import it.contrader.dto.ItemLentDTO;
 
 public class ItemLentService {
 	
-	private ItemLentDAO ItemLentDAO;
+	private ItemLentDAO itemLentDAO;
 	private ItemLentConverter ItemLentConverter;
 	
 	//Istanzio DAO  e Converter specifici.
 	public ItemLentService(){
-		this.ItemLentDAO = new ItemLentDAO();
+		this.itemLentDAO = new ItemLentDAO();
 		this.ItemLentConverter = new ItemLentConverter();
 	}
 	
 
 	public List<ItemLentDTO> getAll() {
 		// Ottiene una lista di entità e le restituisce convertendole in DTO
-		return ItemLentConverter.toDTOList(ItemLentDAO.getAll());
+		return ItemLentConverter.toDTOList(itemLentDAO.getAll());
 	}
 
-/*
-	public ItemLentDTO read(int id) {
-		// Ottiene un'entità e la restituisce convertendola in DTO
-		return ItemLentConverter.toDTO(ItemLentDAO.read(id));
-	}
 
-*/
 	public boolean insert(ItemLentDTO dto) {
-		return ItemLentDAO.insert(ItemLentConverter.toEntity(dto));
-	}
-
-/*
-	public boolean update(ItemLentDTO dto) {
-		// Converte un ItemDTO in entità e lo passa allo ItemDAO per la modifica
-		return ItemLentDAO.update(ItemLentConverter.toEntity(dto));
+		return itemLentDAO.insert(ItemLentConverter.toEntity(dto));
 	}
 
 
 	public boolean delete(int id) {
 		// Questo mtodo chiama direttamente il DAO
-		return ItemLentDAO.delete(id);
+		return itemLentDAO.delete(id);
 	}
 	
-	*/
+	
 
 }

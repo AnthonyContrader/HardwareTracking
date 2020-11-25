@@ -1,6 +1,6 @@
 package it.contrader.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import it.contrader.dto.EmployeeDTO;
@@ -69,7 +69,7 @@ private static String sub_package = "employee.";
 			
 			//costruisce l'oggetto user da inserire
 			EmployeeDTO employeetoinsert = new EmployeeDTO(idFC, firstName, lastName, salary);
-			UserDTO usertoinsert = new UserDTO(firstName+lastName, idFC, "USER");
+			UserDTO usertoinsert = new UserDTO(firstName+"_"+lastName, idFC, "USER");
 			//invoca il service
 			employeeService.insert(employeetoinsert);
 			userService.insert(usertoinsert);
@@ -128,14 +128,7 @@ private static String sub_package = "employee.";
 				
 			case "M":
 				MainDispatcher.getInstance().callView(sub_package + "EmployeeUpdate", null);
-				break;
-				
-			case "T":
-				request = new Request();
-				List<String> trackItems = employeeService.trackitems();
-				request.put("trackItems", trackItems);
-				MainDispatcher.getInstance().callView(sub_package + "EmployeeTrack", request);
-				break;
+				break;		
 				
 			case "C":
 				MainDispatcher.getInstance().callView(sub_package + "EmployeeDelete", null);

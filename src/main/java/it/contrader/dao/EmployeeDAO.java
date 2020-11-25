@@ -19,37 +19,13 @@ public class EmployeeDAO {
 	public static final String QUERY_READ = "SELECT * FROM employees WHERE idFC=?";
 	public static final String QUERY_UPDATE = "UPDATE employees SET firstName=?, lastName=?, salary=? WHERE idFC=?";
 	public static final String QUERY_DELETE = "DELETE FROM employees WHERE idFC=?"; 
-	public static final String QUERY_JOIN = "SELECT employees.firstName, employees.lastName, itemlent.name, "
-											+ "itemlent.price FROM employees INNER JOIN itemlent "
-											+ "ON employees.idFC = itemlent.fiscalCodeForLent";
+	
 	
 	public EmployeeDAO(){
 		
 	}
 	
 	//------------------GET ALL
-	
-	public List<String> trackItems(){
-		List<String> trackItems = new ArrayList<>();
-		Connection connection = ConnectionSingleton.getInstance();
-		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(QUERY_JOIN);
-			String track;
-			while(resultSet.next()) {
-				String firstName = resultSet.getString("firstName");
-				String lastName = resultSet.getString("lastName");
-				String item = resultSet.getString("name");
-				Double price = resultSet.getDouble("price");
-			track = firstName + " " + lastName + " DETIENE " + item + " (costo " + price +"€)";
-			trackItems.add(track);
-			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		return trackItems;
-	}
-	
 	
 	public List<Employee> getAll() {
 		List<Employee> employeeList = new ArrayList<>();

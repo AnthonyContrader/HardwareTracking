@@ -2,11 +2,15 @@ package it.contrader.model;
 
 public class ItemLent {
 	
-private int id;
+	private int id;
 	
-	private String name;
+	private String itemName;
 	
 	private double price;
+	
+	private String firstNameOwner;
+	
+	private String lastNameOwner;
 	
 	private String fiscalCodeForLent;
 	
@@ -14,53 +18,88 @@ private int id;
 	public ItemLent() {
 		
 	}
-	
-	public ItemLent(String name, double price, String fiscalCodeForLent) {
-		this.name = name;
-		this.price = price;
-		this.fiscalCodeForLent = fiscalCodeForLent;
-	}
 
 
-	public ItemLent(int id, String name, double price, String fiscalCodeForLent) {
+	public ItemLent(int id, String firstNameOwner, String lastNameOwner, String itemName, double price, 
+			String fiscalCodeForLent) {
 		this.id = id;
-		this.name = name;
+		this.itemName = itemName;
 		this.price = price;
+		this.firstNameOwner = firstNameOwner;
+		this.lastNameOwner = lastNameOwner;
 		this.fiscalCodeForLent = fiscalCodeForLent;
 	}
-	
+
+
+	public ItemLent(String firstNameOwner, String lastNameOwner, String itemName, double price, 
+			String fiscalCodeForLent) {
+		this.itemName = itemName;
+		this.price = price;
+		this.firstNameOwner = firstNameOwner;
+		this.lastNameOwner = lastNameOwner;
+		this.fiscalCodeForLent = fiscalCodeForLent;
+	}
+
 
 	public int getId() {
 		return id;
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
+
 
 	public double getPrice() {
 		return price;
 	}
 
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+
+	public String getFirstNameOwner() {
+		return firstNameOwner;
+	}
+
+
+	public void setFirstNameOwner(String firstNameOwner) {
+		this.firstNameOwner = firstNameOwner;
+	}
+
+
+	public String getLastNameOwner() {
+		return lastNameOwner;
+	}
+
+
+	public void setLastNameOwner(String lastNameOwner) {
+		this.lastNameOwner = lastNameOwner;
+	}
+
 
 	public String getFiscalCodeForLent() {
 		return fiscalCodeForLent;
 	}
 
+
 	public void setFiscalCodeForLent(String fiscalCodeForLent) {
 		this.fiscalCodeForLent = fiscalCodeForLent;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -71,6 +110,11 @@ private int id;
 		if (getClass() != obj.getClass())
 			return false;
 		ItemLent other = (ItemLent) obj;
+		if (firstNameOwner == null) {
+			if (other.firstNameOwner != null)
+				return false;
+		} else if (!firstNameOwner.equals(other.firstNameOwner))
+			return false;
 		if (fiscalCodeForLent == null) {
 			if (other.fiscalCodeForLent != null)
 				return false;
@@ -78,21 +122,31 @@ private int id;
 			return false;
 		if (id != other.id)
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (itemName == null) {
+			if (other.itemName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!itemName.equals(other.itemName))
+			return false;
+		if (lastNameOwner == null) {
+			if (other.lastNameOwner != null)
+				return false;
+		} else if (!lastNameOwner.equals(other.lastNameOwner))
 			return false;
 		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
 			return false;
 		return true;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return id + "\t" + name + "\t" + price + "\t" + fiscalCodeForLent;
+		return "Dati oggetto: possessore -> " + firstNameOwner + " " + lastNameOwner +
+				" (" + fiscalCodeForLent + ") detiene " + itemName.toUpperCase() + " (costo: " +
+				price + ")";
+				
 	}
+	
+	
 	
 	
 	

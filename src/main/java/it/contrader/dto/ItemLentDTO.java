@@ -1,36 +1,42 @@
 package it.contrader.dto;
 
-
 public class ItemLentDTO {
 	
 	
 private int id;
 	
-	private String name;
+	private String firstNameOwner;
+	
+	private String lastNameOwner;
+	
+	private String itemName;
 	
 	private double price;
 	
 	private String fiscalCodeForLent;
 	
-	
 	public ItemLentDTO() {
 		
 	}
-	
-	public ItemLentDTO(String name, double price, String fiscalCodeForLent) {
-		this.name = name;
-		this.price = price;
-		this.fiscalCodeForLent = fiscalCodeForLent;
-	}
 
-
-	public ItemLentDTO(int id, String name, double price, String fiscalCodeForLent) {
+	public ItemLentDTO(int id, String firstNameOwner, String lastNameOwner, String itemName, double price,
+			String fiscalCodeForLent) {
 		this.id = id;
-		this.name = name;
+		this.firstNameOwner = firstNameOwner;
+		this.lastNameOwner = lastNameOwner;
+		this.itemName = itemName;
 		this.price = price;
 		this.fiscalCodeForLent = fiscalCodeForLent;
 	}
-	
+
+	public ItemLentDTO(String firstNameOwner, String lastNameOwner, String itemName, double price,
+			String fiscalCodeForLent) {
+		this.firstNameOwner = firstNameOwner;
+		this.lastNameOwner = lastNameOwner;
+		this.itemName = itemName;
+		this.price = price;
+		this.fiscalCodeForLent = fiscalCodeForLent;
+	}
 
 	public int getId() {
 		return id;
@@ -40,12 +46,28 @@ private int id;
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstNameOwner() {
+		return firstNameOwner;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstNameOwner(String firstNameOwner) {
+		this.firstNameOwner = firstNameOwner;
+	}
+
+	public String getLastNameOwner() {
+		return lastNameOwner;
+	}
+
+	public void setLastNameOwner(String lastNameOwner) {
+		this.lastNameOwner = lastNameOwner;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public double getPrice() {
@@ -73,6 +95,11 @@ private int id;
 		if (getClass() != obj.getClass())
 			return false;
 		ItemLentDTO other = (ItemLentDTO) obj;
+		if (firstNameOwner == null) {
+			if (other.firstNameOwner != null)
+				return false;
+		} else if (!firstNameOwner.equals(other.firstNameOwner))
+			return false;
 		if (fiscalCodeForLent == null) {
 			if (other.fiscalCodeForLent != null)
 				return false;
@@ -80,15 +107,29 @@ private int id;
 			return false;
 		if (id != other.id)
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (itemName == null) {
+			if (other.itemName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!itemName.equals(other.itemName))
+			return false;
+		if (lastNameOwner == null) {
+			if (other.lastNameOwner != null)
+				return false;
+		} else if (!lastNameOwner.equals(other.lastNameOwner))
 			return false;
 		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Dati oggetto: possessore -> " + firstNameOwner + " " + lastNameOwner +
+				" (" + fiscalCodeForLent + ") detiene " + itemName.toUpperCase() + " (costo: " +
+				price + ")";
+				
+	}
+	
 	
 
 }

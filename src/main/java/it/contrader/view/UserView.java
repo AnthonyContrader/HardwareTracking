@@ -51,7 +51,6 @@ public class UserView extends AbstractView {
 
 		this.choice = getInput();
 
-		
 	}
 	
 	/**

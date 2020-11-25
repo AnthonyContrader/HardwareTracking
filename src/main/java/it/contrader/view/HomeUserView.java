@@ -8,6 +8,8 @@ public class HomeUserView extends AbstractView{
 	String choice;
 	private Request request;
 	
+	String fiscalCodeForLent;
+	
 
 	@Override
 	public void showResults(Request request) {
@@ -18,7 +20,7 @@ public class HomeUserView extends AbstractView{
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("Premere [1] per richiedere, [3] per uscire");
+		System.out.println("Premere [1] per richiedere, [2] Per restituire, [3] per uscire");
 		choice = this.getInput();
 	}
 
@@ -32,15 +34,16 @@ public class HomeUserView extends AbstractView{
 			MainDispatcher.getInstance().callAction("Item", "doControl", request);
 			break;
 			
-			/*
+			
 		case "2":
-			this.request.put("choice", choice);
-			this.request.put("firstName", firstName);
-			this.request.put("lastName", lastName);
-			this.request.put("mode", "ITEMRETURN");
-			MainDispatcher.getInstance().callAction("Item", "doControl", request);
+			System.out.print("Inserisci il tuo codice fiscale -> ");
+			fiscalCodeForLent = this.getInput();
+			this.request.put("choice", 3); //impacchettamento per evitare il crash
+			this.request.put("fiscalCodeForLent", fiscalCodeForLent);
+			this.request.put("mode", "ITEM_LENT_LIST_TO_SPECIFIC_USER");
+			MainDispatcher.getInstance().callAction("ItemLent", "doControl", request);
 			break;
-			*/
+			
 			
 		default:
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);

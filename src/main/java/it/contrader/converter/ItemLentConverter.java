@@ -11,7 +11,7 @@ public class ItemLentConverter {
 		
 		ItemLentDTO itemLentDTO = new ItemLentDTO(itemLent.getId(), itemLent.getFirstNameOwner(), 
 				itemLent.getLastNameOwner(), itemLent.getItemName(), itemLent.getPrice(), 
-				itemLent.getFirstNameOwner());
+				itemLent.getFiscalCodeForLent());
 		
 		return itemLentDTO;
 		

@@ -23,7 +23,6 @@ public class ItemLentService {
 		return ItemLentConverter.toDTOList(itemLentDAO.getAll());
 	}
 
-
 	public boolean insert(ItemLentDTO dto) {
 		return itemLentDAO.insert(ItemLentConverter.toEntity(dto));
 	}

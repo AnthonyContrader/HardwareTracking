@@ -48,10 +48,9 @@ public class ItemLentInsertView extends AbstractView{
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("mode", mode);
 		request.put("choice", choice);
+		request.put("mode", mode);
 		request.put("fiscalCodeForLent", fiscalCodeForLent);
-		System.out.println(choice+fiscalCodeForLent);
 		MainDispatcher.getInstance().callAction("ItemLent", "doControl", request);
 		
 	}

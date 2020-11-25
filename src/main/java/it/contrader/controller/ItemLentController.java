@@ -4,6 +4,7 @@ import it.contrader.service.EmployeeService;
 import it.contrader.service.ItemLentService;
 import it.contrader.service.ItemService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.dto.EmployeeDTO;
@@ -44,6 +45,16 @@ public class ItemLentController implements Controller{
 		
 		switch(mode) {
 		
+		case "DELETE":
+			
+			if(itemLentService.delete(choice))
+				MainDispatcher.getInstance().callView(sub_package + "ItemLentDelete", null);
+			else {
+					System.out.println("Errore");
+				MainDispatcher.getInstance().callView("HomeUser", null);
+			}
+			break;
+		
 		
 		case "INSERT": 
 			
@@ -53,6 +64,21 @@ public class ItemLentController implements Controller{
 			itemName = itemsToLent.get(choice-1).getName();
 			price = itemsToLent.get(choice-1).getPrice();
 			
+			//verifico dalla lista oggetti prestati che l'oggetto non sia già stato richiesto
+			
+			List<ItemLentDTO> trackItems = itemLentService.getAll();
+			for(ItemLentDTO itemLent: trackItems) {
+				// se è presente blocca l'operazione e rimanda alla HomeUserView
+				if(itemLent.getFiscalCodeForLent().equals(fiscalCodeForLent)
+						&& itemLent.getItemName().equals(itemName)) {
+				System.out.println("\nCi dispiace doverti informare che dai nostri sistemi"
+						+ " rileviamo che hai già richiesto questo oggetto.\n"
+						+ "Non è possibile richiedere più di un oggetto per tipo.\n"); 
+					MainDispatcher.getInstance().callView("HomeUser", null); 
+				}
+			}
+			
+			//se non è presente allora la richiesta è inoltrabile e 
 			//carico la lista impiegati prelevando nome e cognome sapendo il codice fiscale
 			
 			List<EmployeeDTO> employees = employeeService.getAll();
@@ -62,6 +88,8 @@ public class ItemLentController implements Controller{
 					lastNameOwner = employee.getLastName();
 				}
 			}
+			
+			//se i nomi sono stati trovati allora il codice fiscale è valido
 			
 			if(firstNameOwner != null && lastNameOwner != null) {
 			ItemLentDTO itemtolent = new ItemLentDTO(firstNameOwner, lastNameOwner,
@@ -75,20 +103,40 @@ public class ItemLentController implements Controller{
 				MainDispatcher.getInstance().callView("HomeUser", null); 
 		}
 			break;
-			
+
 		
 		case "ITEMLENTLIST":
-			List<ItemLentDTO> trackItems = itemLentService.getAll();
-			request.put("trackItems", trackItems);
+			List<ItemLentDTO> trackItem = itemLentService.getAll();
+			request.put("trackItem", trackItem);
 			MainDispatcher.getInstance().callView(sub_package + "ItemLentList", request);
 
+		 break;
+		 
+		 
+		case "ITEM_LENT_LIST_TO_SPECIFIC_USER":
+			
+			//carico tutta la lista e vado a scegliere solo gli oggetti corrispondenti
+			//al codice fiscale fornito
+			
+			List<ItemLentDTO> itemsLent = itemLentService.getAll();
+			
+			List<ItemLentDTO> itemsRequestedFromThisUser = new ArrayList<>();
+			
+			for(ItemLentDTO i: itemsLent) {
+				if(i.getFiscalCodeForLent().contentEquals(fiscalCodeForLent))
+					itemsRequestedFromThisUser.add(i);
+			}
+			
+			request.put("itemsRequestedFromThisUser", itemsRequestedFromThisUser);
+			MainDispatcher.getInstance().callView(sub_package + "ItemLentDelete", request);
+			
 		 break;
 		 
 		 
 		 default:
 			 System.out.println("Sono al default");
 			
-	}
+	  }
 	
 	
 	}	

@@ -147,9 +147,5 @@ public class ItemLent {
 	}
 	
 	
-	
-	
-	
-	
 
 }

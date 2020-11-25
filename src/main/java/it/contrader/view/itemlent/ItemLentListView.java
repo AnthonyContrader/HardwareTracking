@@ -18,7 +18,7 @@ public class ItemLentListView extends AbstractView{
 			System.out.println("\n------------------- Tracciamento Oggetti ----------------\n");
 			
 			@SuppressWarnings("unchecked")
-			List<ItemLentDTO> trackItems = (List<ItemLentDTO>) request.get("trackItems");
+			List<ItemLentDTO> trackItems = (List<ItemLentDTO>) request.get("trackItem");
 			
 			if(trackItems.isEmpty())
 				System.out.println("Non sono ancora stati richiesti oggetti");

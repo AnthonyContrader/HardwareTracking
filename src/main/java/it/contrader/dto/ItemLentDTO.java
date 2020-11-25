@@ -86,6 +86,23 @@ private int id;
 		this.fiscalCodeForLent = fiscalCodeForLent;
 	}
 
+
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((firstNameOwner == null) ? 0 : firstNameOwner.hashCode());
+		result = prime * result + ((fiscalCodeForLent == null) ? 0 : fiscalCodeForLent.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
+		result = prime * result + ((lastNameOwner == null) ? 0 : lastNameOwner.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -121,7 +138,7 @@ private int id;
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Dati oggetto: possessore -> " + firstNameOwner + " " + lastNameOwner +

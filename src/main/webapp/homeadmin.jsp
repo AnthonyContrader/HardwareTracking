@@ -9,6 +9,7 @@
 		<link href="css/seastyle.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
 		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+		<style>body {overflow-x: hidden;}</style>
 	</head>
 	<body>
 		<%@include file="css/header.jsp"%>

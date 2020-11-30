@@ -1,12 +1,17 @@
 package it.contrader.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import it.contrader.dto.EmployeeDTO;
 import it.contrader.dto.UserDTO;
+import it.contrader.service.EmployeeService;
 import it.contrader.service.LoginService;
 
 
@@ -49,6 +54,23 @@ public class LoginServlet extends HttpServlet {
 				break;
 				
 			case "USER":
+				
+				EmployeeService employeeService = new EmployeeService();
+				String[] employee = username.split("_");
+				
+				String firstName = employee[0]; String lastName = employee[1];
+				String fiscalCodeForLent = null;
+				
+				System.out.println(firstName + " " + lastName);
+				
+				List<EmployeeDTO> employees = employeeService.getAll();
+				
+				for(EmployeeDTO x: employees) {
+					if(x.getFirstName().equals(firstName) && x.getLastName().equals(lastName))
+						fiscalCodeForLent = x.getIdFC();
+				}
+					
+				request.setAttribute("fiscalCodeForLent", fiscalCodeForLent);
 				getServletContext().getRequestDispatcher("/homeuser.jsp").forward(request, response);
 				break;
 				

@@ -55,11 +55,13 @@ public class ItemLentServlet extends HttpServlet {
 			
 		case "ITEMLENTLIST":
 			updateList(request);
+			request.setAttribute("fiscalCodeForLent", fiscalCodeForLent);
 			getServletContext().getRequestDispatcher("/itemlent/itemlentmanager.jsp").forward(request, response);
 			break;
 			
 		case "ITEMLIST":
 			availableItemList(request);
+			request.setAttribute("fiscalCodeForLent", fiscalCodeForLent);
 			getServletContext().getRequestDispatcher("/itemlent/itemlentrequest.jsp").forward(request, response);
 			break;
 			
@@ -108,6 +110,8 @@ public class ItemLentServlet extends HttpServlet {
 							price, fiscalCodeForLent);
 			service.insert(newItem);
 			request.setAttribute("esito", newItem);
+			request.setAttribute("fiscalCodeForLent", fiscalCodeForLent);
+			updateList(request);
 			getServletContext().getRequestDispatcher("/homeuser.jsp").forward(request, response);
 			
 			}
@@ -136,17 +140,23 @@ public class ItemLentServlet extends HttpServlet {
 				System.out.println(item2.toString());
 			
 				request.setAttribute("listforuser", listforuser);
+				request.setAttribute("fiscalCodeForLent", fiscalCodeForLent);
 				getServletContext().getRequestDispatcher("/itemlent/itemlentreturn.jsp").forward(request, response);
 			
 			break;
 			
 		case "DELETE":
 			
-			int id = Integer.parseInt(request.getParameter("id"));
+			String mix = (String) request.getParameter("mix");
+			String[] parts = mix.split("-");
+			
+			int id = Integer.parseInt(parts[0]);
+			fiscalCodeForLent = parts[1];
 			
 			if(service.delete(id)) {
 				ItemLentDTO x = new ItemLentDTO("a", "a", "a", 3, "a");
 				request.setAttribute("esito", x);
+				request.setAttribute("fiscalCodeForLent", fiscalCodeForLent);
 				getServletContext().getRequestDispatcher("/homeuser.jsp").forward(request, response);	
 				
 			}

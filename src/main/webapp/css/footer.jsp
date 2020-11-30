@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		
+		<link href="css/seastyle.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="footer">

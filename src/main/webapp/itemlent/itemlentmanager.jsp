@@ -39,9 +39,7 @@
 					for (ItemLentDTO il : list) {
 				%>
 				<tr>
-					<td><a href=UserServlet?mode=read&id=<%=il.getId()%>>
-							<%=il.getId()%>
-					</a></td>
+					<td><%=il.getId()%></td>
 					<td><%=il.getItemName()%></td>
 					<td><%=il.getFirstNameOwner()%></td>
 					<td><%=il.getLastNameOwner()%></td>

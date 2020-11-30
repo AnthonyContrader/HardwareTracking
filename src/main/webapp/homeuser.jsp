@@ -16,7 +16,8 @@
 		<h1 class="up">Welcome ${user.getUsername().toUpperCase()}</h1>
 		
 		<%
- 
+ 		
+			String fiscalCodeForLent = (String) request.getAttribute("fiscalCodeForLent");
 		 ItemLentDTO item = (ItemLentDTO) request.getAttribute("esito");
 		
 			if(item != null) {
@@ -39,17 +40,17 @@
 		
 		<div class="navbar">
 		  <a class="active" href="homeuser.jsp">Home</a>
-		  <a href="ItemLentServlet?mode=itemlist">Request</a>
-		  <a href="insertfiscalcode.jsp">Return</a>
+		  <a href="ItemLentServlet?mode=itemlist&fiscalCodeForLent=<%=fiscalCodeForLent%>">Request</a>
+		  <a href="ItemLentServlet?mode=listforuser&fiscalCodeForLent=<%=fiscalCodeForLent%>">Return</a>
 		  <a href="LogoutServlet" id="logout">Logout</a>
 		</div>
 		
-		<div class="main">
+		<div class="principal">
 		
 			<div id="floatmiddle">
 				<!-- Request's Card -->
 				<div id="floatleft" class="card">
-					<a href="ItemLentServlet?mode=itemlist">
+					<a href="ItemLentServlet?mode=itemlist&fiscalCodeForLent=<%=fiscalCodeForLent%>">
 				    	<div class="card-body">
 					   		<i class="fas fa-exchange-alt"style="color: #166e07;"></i>
 					   		<h3 class="card-title">Request</h3>
@@ -60,7 +61,7 @@
 				
 				<!-- Return's Card -->
 				<div id="floatleft" class="card space">
-					<a href="insertfiscalcode.jsp">
+					<a href="ItemLentServlet?mode=listforuser&fiscalCodeForLent=<%=fiscalCodeForLent%>">
 				    	<div class="card-body">
 					   		<i class="fas fa-undo-alt" style="color: #0b18a3;"></i>
 					   		<h3 class="card-title">Return</h3>

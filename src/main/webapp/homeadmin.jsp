@@ -24,7 +24,7 @@
 		  <a href="LogoutServlet" id="logout">Logout</a>
 		</div>
 		
-		<div class="main">
+		<div class="principal">
 			<!-- User's Card -->
 			<div id="floatleft" class="card">
 				<a href="UserServlet?mode=userlist">

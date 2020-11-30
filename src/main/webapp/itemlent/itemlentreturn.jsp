@@ -11,17 +11,20 @@
 	<body>
 		<%@ include file="../css/header.jsp" %>
 		
+		
+		<%		
+				String fiscalCodeForLent = (String) request.getAttribute("fiscalCodeForLent");
+				List<ItemLentDTO> list = (List<ItemLentDTO>) request.getAttribute("listforuser");
+			%>
+		
 		<div class="navbar">
 		  <a href="homeuser.jsp">Home</a>
-		  <a href="ItemLentServlet?mode=itemlist">Request</a>
-		  <a class="active" href="insertfiscalcode.jsp">Return</a>
+		  <a href="ItemLentServlet?mode=itemlist&fiscalCodeForLent=<%=fiscalCodeForLent%>">Request</a>
+		  <a class="active" href="ItemLentServlet?mode=listforuser&fiscalCodeForLent=<%=fiscalCodeForLent%>">Return</a>
 		  <a href="LogoutServlet" id="logout">Logout</a>
 		</div>
 		<div class="main">
 			
-			<%
-				List<ItemLentDTO> list = (List<ItemLentDTO>) request.getAttribute("listforuser");
-			%>
 	
 			<br>
 		
@@ -40,9 +43,10 @@
 						for (ItemLentDTO u : list) {
 					%>
 					<tr>
-						<td><a href=ItemLentServlet?mode=delete&id=<%=u.getId()%>><%=u.getId()%></a></td>
+						<td><a href="ItemLentServlet?mode=delete&mix=<%=u.getId()+"-"+fiscalCodeForLent%>"><%=u.getId()%></a></td>
 						<td><%=u.getItemName()%></td>
 						<td><%=u.getPrice()%></td>
+			
 					</tr>
 					<%
 						}

@@ -87,6 +87,19 @@ public class EmployeeServlet extends HttpServlet {
 
 		case "DELETE":
 			idFC = request.getParameter("idFC");
+
+			//preleva nome e cognome per eliminare user
+
+			for(EmployeeDTO x: service.getAll()) //prende la lista impiegati
+			if(x.getIdFC().equals(idFC)) { //se il id corrisponde
+			firstName = x.getFirstName(); lastName = x.getLastName(); //preleva nome e cognome
+			for(UserDTO y: userService.getAll()) { //prende la lista user
+			if(y.getUsername().equals(firstName+"_"+lastName)) //se l'user corrisponde
+			userService.delete(y.getId()); //elimina
+			}
+			}
+
+
 			ans = service.delete(idFC);
 			request.setAttribute("ans", ans);
 			updateList(request);

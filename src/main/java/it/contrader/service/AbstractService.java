@@ -1,11 +1,14 @@
 package it.contrader.service;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.data.repository.CrudRepository;
 
 import it.contrader.converter.Converter;
-
+import it.contrader.dao.DAOGeneralInterface;
 
 /**
  * Questa classe astratta implementa tutti i metodi CRUD firmati in ServiceDTO.
@@ -22,32 +25,37 @@ import it.contrader.converter.Converter;
 public abstract class AbstractService<Entity,DTO> implements ServiceDTO<DTO> {
 	
 	@Autowired
-	protected CrudRepository<Entity,Long> repository;
+	protected DAOGeneralInterface<Entity> repository;
 	@Autowired
 	protected Converter<Entity,DTO> converter;
 	
 	@Override
+	@Transactional
 	public DTO insert(DTO dto) {
 		return converter.toDTO(repository.save(converter.toEntity(dto)));
 	}
 
 	@Override
-	public Iterable<DTO> getAll() {
+	@Transactional
+	public List<DTO> getAll() {
 		return converter.toDTOList(repository.findAll());
 	}
 
 	@Override
-	public DTO read(long id) {
-		return converter.toDTO(repository.findById(id).get());
+	@Transactional
+	public DTO read(int id) {
+		return converter.toDTO(repository.findById(id));
 	}
 
 	@Override
+	@Transactional
 	public DTO update(DTO dto) {
 		return converter.toDTO(repository.save(converter.toEntity(dto)));
 	}
 
 	@Override
-	public void delete(long id) {
+	@Transactional
+	public void delete(int id) {
 		repository.deleteById(id);
 	}
 }

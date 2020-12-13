@@ -1,11 +1,9 @@
 package it.contrader.model;
 
-import javax.persistence.Entity;
-
 import javax.persistence.*;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,22 +22,28 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="user")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class User {
 	
-	public enum Usertype {
-		ADMIN,
-		USER
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@Column(name="id")
+	private int id;
 	
-	@Column(unique = true)
+	@Column(name="username")
 	private String username;
 	
+	@Column(name="password")
 	private String password;
-
-	private Usertype usertype;
 	
+	@Column(name="usertype")
+	private String usertype;
+	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private Employee employee;
+	
+	
+
 }

@@ -1,13 +1,15 @@
 package it.contrader.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.service.ServiceDTO;
 
@@ -29,12 +31,12 @@ public abstract class AbstractController <DTO>{
 	private ServiceDTO<DTO> service;
 	
 	@GetMapping("/getall")
-	public Iterable<DTO> getAll(){
+	public List<DTO> getAll(){
 		return service.getAll();		
 	}
 	
-	@DeleteMapping("/delete")
-	public void delete(@RequestParam("id") long id) {
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable("id") int id) {
 		service.delete(id);
 	}
 	
@@ -50,8 +52,8 @@ public abstract class AbstractController <DTO>{
 		return dto;
 	}
 	
-	@GetMapping("/read")
-	public DTO read(long id) {
+	@GetMapping("/read/{id}")
+	public DTO read(@PathVariable("id") int id) {
 		return service.read(id);
 	}
 }

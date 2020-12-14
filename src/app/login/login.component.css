@@ -10,8 +10,7 @@ form{
     border-color: crimson;
     padding: 3em;
     background-color: rgb(255, 255, 255);
-    -webkit-box-shadow: 0px 0px 34px 5px rgba(0,0,0,0.7); 
-    box-shadow: 0px 0px 5px 5px #000000;
+    box-shadow: 0px 3px 15px 5px rgb(128, 67, 67);
     -webkit-box-shadow: 0px 3px 15px 5px rgb(128, 67, 67);
 }
 
@@ -34,13 +33,6 @@ img{
     background-size: cover;
     height: 100vh;
 }
-input{
-    border: none; 
-    border-width: 0; 
-    box-shadow: none;
-    border-radius: 0%;
-    color: orange;
-}
 input::placeholder{
     color: orange;
 }
@@ -55,8 +47,11 @@ i {
 }
 .form-control{
     border: none;
+    border-width: 0; 
+    box-shadow: none;
+    border-radius: 0%;
+    color: orange;
     background-color: transparent;
-    color: white;
     border-bottom: 1px solid orange;
     width: 89%;
     float: right;

@@ -1,9 +1,20 @@
+* {
+    font-size: medium;
+}
+
 form{
     margin-top:270px;
     width: 55%;
     padding: 10px;
     border-radius:0;
     border-color: crimson;
+    padding: 3em;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 34px 5px rgba(0,0,0,0.7); 
+    box-shadow: 0px 0px 5px 5px #000000;
+
+    -webkit-box-shadow: 0px 0px 5px 5px #000000; 
+box-shadow: ;
 }
 
 img{
@@ -12,42 +23,76 @@ img{
     margin: 12%;
 }
 
-input, input:hover, input::selection, input:checked, input:focus{
+/* .form-group:hover, .form-group::selection, .form-group:checked, .form-group:focus{
     border: 0;
     background-color: darkorange;
     border-radius: 0;
     color: white;
     border-bottom: 1px solid crimson;
-    margin: 0px; 
-}
+}*/
 
 .container-fluid{
-    background-color: darkorange;
+    background-image: url(https://st2.depositphotos.com/1000204/11659/i/600/depositphotos_116591138-stock-photo-amazing-summer-sunrise-landscape.jpg);
+    background-size: cover;
     height: 100vh;
 }
+input{
+    border: none; 
+    border-width: 0; 
+    box-shadow: none;
+    border-radius: 0%;
+    color: orange;
+}
 input::placeholder{
-    color: white;
+    color: orange;
+}
+.form-group {
+    display: flex;
+    margin-bottom: 4%;
+}
+i {
+    padding: 2.4%;
+    color: orange;
+    border-bottom: 1px solid orange;
 }
 .form-control{
-border: none;
-background-color: darkorange;
-color: white;
-border-bottom: 1px solid white;
-}
-
-.login{
-border: none;
-background-color: darkorange;
-color: white;
-border: 1px solid white;
-border-radius: 2px;
-padding-top: 10px;
-padding-right: auto;
-padding-bottom: 10px;
-padding-left: auto;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: 1px solid orange;
+    width: 89%;
+    float: right;
 }
 
 p{
-font-size: 14px;
-color: white;
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff712f;
+    margin-bottom: 6%;
+}
+
+button {
+    color: white;
+    font-weight: bolder;
+
+    margin-top: 6%;
+    margin-right: 2%;
+    border: none;
+    padding: 10px 25px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    background-image: linear-gradient(to right, #FF512F 0%, #F09819  51%, #FF512F  100%);
+}
+
+button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+/* --- Mobile Version --- */
+@media only screen and (max-width: 1750px) {
+    
 }

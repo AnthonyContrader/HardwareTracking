@@ -29,7 +29,7 @@ img{
 }*/
 
 .container-fluid{
-    background-image: url(https://st2.depositphotos.com/1000204/11659/i/600/depositphotos_116591138-stock-photo-amazing-summer-sunrise-landscape.jpg);
+    background-image: url("../../assets/index.png");
     background-size: cover;
     height: 100vh;
 }
@@ -87,5 +87,7 @@ button:hover {
 
 /* --- Mobile Version --- */
 @media only screen and (max-width: 1750px) {
-    
+    form {
+        text-align: center;
+    }
 }

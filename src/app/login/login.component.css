@@ -34,13 +34,7 @@ img{
     background-size: cover;
     height: 100vh;
 }
-input{
-    border: none; 
-    border-width: 0; 
-    box-shadow: none;
-    border-radius: 0%;
-    color: orange;
-}
+
 input::placeholder{
     color: orange;
 }
@@ -56,7 +50,10 @@ i {
 .form-control{
     border: none;
     background-color: transparent;
-    color: white;
+    border-width: 0; 
+    box-shadow: none;
+    border-radius: 0%;
+    color: orange;
     border-bottom: 1px solid orange;
     width: 89%;
     float: right;

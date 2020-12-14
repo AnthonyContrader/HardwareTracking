@@ -28,7 +28,7 @@ export abstract class AbstractService<DTO> implements Service<DTO> {
     }
 
     delete(id: number): Observable<any> {
-        return this.http.delete('http://localhost:' + this.port + '/' + this.type + '/delete?id=' + id);
+        return this.http.delete('http://localhost:' + this.port + '/' + this.type + '/delete/' + id);
     }
 
     insert(dto: DTO): Observable<any> {

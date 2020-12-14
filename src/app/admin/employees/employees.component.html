@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Salary</th>
+          <th>Fiscal Code</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+
+        <tr>
+          <td><input placeholder="firstName" [(ngModel)]="employeetoinsert.firstName"></td>
+          <td><input placeholder="lastName" [(ngModel)]="employeetoinsert.lastName"></td>
+          <td><input placeholder="salary" [(ngModel)]="employeetoinsert.salary"></td>
+          <td><input placeholder="fiscalCode" [(ngModel)]="employeetoinsert.fiscalCode"></td>
+
+          <td>
+            <button (click)="insert(employeetoinsert)">Insert</button>
+          </td>
+
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+
+          <tr *ngFor="let employee of employees">
+            <td>
+              <input [(ngModel)]="employee.firstName">
+            </td>
+            <td>
+             <input [(ngModel)]="employee.lastName">
+            </td>
+            <td>
+              <input [(ngModel)]="employee.salary">
+             </td>
+             <td>
+              <input [(ngModel)]="employee.fiscalCode">
+             </td>
+          
+          <td>
+            <button (click)="update(employee)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(employee)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

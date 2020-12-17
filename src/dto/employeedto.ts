@@ -14,6 +14,5 @@ export class EmployeeDTO {
 
     user: UserDTO;
 
-    
 
 }

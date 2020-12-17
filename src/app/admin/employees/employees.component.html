@@ -20,8 +20,12 @@
           <td><input placeholder="salary" [(ngModel)]="employeetoinsert.salary"></td>
           <td><input placeholder="fiscalCode" [(ngModel)]="employeetoinsert.fiscalCode"></td>
 
+        
           <td>
-            <button (click)="insert(employeetoinsert)">Insert</button>
+            <button (click)="createUserBefore(employeetoinsert.firstName,
+                                              employeetoinsert.lastName,
+                                              employeetoinsert.salary,
+                                              employeetoinsert.fiscalCode)">Insert</button>
           </td>
 
           <td>

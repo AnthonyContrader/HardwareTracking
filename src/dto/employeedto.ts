@@ -6,12 +6,14 @@ export class EmployeeDTO {
 
     firstName: string;
 
-    lastName; string;
+    lastName: string;
 
     salary: number;
 
     fiscalCode: string;
 
     user: UserDTO;
+
+    
 
 }

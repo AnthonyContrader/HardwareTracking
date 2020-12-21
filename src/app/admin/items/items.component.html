@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+
+        <tr>
+          <td><input placeholder="name" [(ngModel)]="itemtoinsert.name"></td>
+          <td><input placeholder="price" [(ngModel)]="itemtoinsert.price"></td>
+
+          <td>
+            <button (click)="insert(itemtoinsert)">Insert</button>
+          </td>
+
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+
+          <tr *ngFor="let item of items">
+            <td>
+              <input [(ngModel)]="item.name">
+            </td>
+            <td>
+             <input [(ngModel)]="item.price">
+            </td>
+           
+          <td>
+            <button (click)="update(item)">Save</button>
+          </td>
+          <td>
+            <button (click)="delete(item)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

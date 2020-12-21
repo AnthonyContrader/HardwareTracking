@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { ItemsComponent } from './items/items.component';
 import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
@@ -24,6 +25,7 @@ const routes: Routes = [
     { path: '', component: AdminDashboardComponent},
     { path: 'users', component: UsersComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent},
+    { path: 'items', component: ItemsComponent},
     { path: 'employees', component: EmployeesComponent}
   ]}
 ];

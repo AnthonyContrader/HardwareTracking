@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="sidenav">
+            <button class="menubtn">
+                <a [routerLink]="['/user-dashboard']"> <i class="fas fa-home" style="margin-right: 10px"> </i>
+                    Dashboard </a>
+            </button>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#account"
+                (click)="accountcollapse()">
+                <i class="fas fa-user" style="margin-right: 15px"></i> Account
+            </button>
+            <div class="collapsebtn" id="account" *ngIf="isAccountCollapsed">
+                <button class="menubtn" style="background-color: #334247; padding-left: 40px">
+                    <a [routerLink]="['/user-dashboard/work-in-progress']"> <i class="fas fa-user-edit"
+                            style="margin-right: 15px"></i>
+                        Edit Profile</a>
+                </button>
+                <button class="menubtn" style="background-color: #334247; padding-left: 40px">
+                    <a [routerLink]="['/user-dashboard/work-in-progress']"><i class="fas fa-file-alt"
+                            style="margin-right: 15px"></i>General Info</a>
+                </button>
+            </div>
+            <!-- Requests -->
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#requests"
+                (click)="requestscollapse()">
+                <i class="fas fa-exchange-alt" style="margin-right: 15px"></i>Requests
+            </button>
+            <div class="collapsebtn" id="requests" *ngIf="isRequestCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/user-dashboard/users']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Requests </a>
+                </button>
+            </div>
+            <!-- /Requests -->
+            <!-- Returns -->
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#returns"
+                (click)="returnscollapse()">
+                <i class="fas fa-undo-alt" style="margin-right: 15px"></i>Returns
+            </button>
+            <div class="collapsebtn" id="returns" *ngIf="isReturnCollapsed">
+                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                    <a [routerLink]="['/user-dashboard/employees']"> <i class="fas fa-edit" style="margin-right: 10px">
+                        </i> Manage Returns </a>
+                </button>
+            </div>
+            <!-- /Returns -->
+            <button class="menubtn" (click)="logout()">
+                <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout
+            </button>
+        </div>
+    </div>
+</div>

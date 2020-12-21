@@ -3,30 +3,32 @@
     background-color: darkorange;
 }
 .searchContainer {
-    margin-top: 10px;
+    margin-top: 14px;
     display: inline-block;
-    width:100%;
+    width: 100%;
     height: auto;
     padding: auto;
     margin-left:10px;
     border: 0;
     border-radius: 21px;
     overflow: hidden;
-  background-color: white;
+    background-color: white;
   }
   
-  
   .searchIcon {
-    padding: 0.5rem;
-    z-index:2;
+    padding: 12px 4px 10px 10px;
+    font-size: 11px;
+    z-index: 2;
     background-color: white;
   }
   
   .searchBox {
-    border: 0;
-    padding: 0.5rem;
+    border: none;
+    padding: 7px;
     background-color: white;
-    font-size: 12px;
+    font-size: 13px;
+    width: calc(100% - 25px);
+    outline: none;
   }
   
   .searchButton {
@@ -49,8 +51,15 @@
       width: 100%;
       background-color: #1e282d !important;
   }
-  
-  i:hover{
-    background-color: crimson;
 
+  .icon {
+    font-size: 22px;
+    padding: 19px;
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, darkorange 0%, #F09819  51%, #FF512F 100%);
+    transition: 0.3s;
+  }
+
+  .icon:hover {
+    background-position: right center;
   }

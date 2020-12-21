@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminMenuComponent } from './admin-layout/admin-menu/admin-menu.component';
 import { HeaderComponent } from './header/header.component';
+import { UserLayoutComponent } from './user-layout/user-layout.component';
+import { UserMenuComponent } from './user-layout/user-menu/user-menu.component';
+
 import { RouterModule } from '@angular/router';
 
 /**
@@ -13,9 +16,11 @@ import { RouterModule } from '@angular/router';
  * @author Vittorio Valent
  * 
  * @see AdminLayoutComponent
+ *
+ * @see UserLayoutComponent
  */
 @NgModule({
-  declarations: [AdminLayoutComponent, AdminMenuComponent, HeaderComponent],
+  declarations: [AdminLayoutComponent, AdminMenuComponent, HeaderComponent, UserLayoutComponent, UserMenuComponent],
   imports: [
     CommonModule,
     RouterModule

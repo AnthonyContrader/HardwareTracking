@@ -53,6 +53,18 @@ public class ItemLentDAO implements DAOGeneralInterface<ItemLent>{
 		return itemLent;
 		
 	}
+	
+	@Override
+	public ItemLent update(ItemLent itemLent) {
+		
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		currentSession.update(itemLent);
+		
+		//save/update the customer
+		return itemLent;
+		
+	}
 
 	@Override
 	public void deleteById(int id) {

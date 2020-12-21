@@ -14,9 +14,9 @@ import it.contrader.model.Item;
 @Repository
 public class ItemDAO implements DAOGeneralInterface<Item>{
 	
-	
 	@Autowired
 	private EntityManager entityManager;
+	
 	
 	@Override
 	public List<Item> findAll() {
@@ -49,7 +49,18 @@ public class ItemDAO implements DAOGeneralInterface<Item>{
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		currentSession.saveOrUpdate(item);
+		currentSession.save(item);
+		
+		return item;
+		
+	}
+	
+	@Override
+	public Item update(Item item) {
+		
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		currentSession.update(item);
 		
 		return item;
 		

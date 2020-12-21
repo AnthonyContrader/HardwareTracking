@@ -14,6 +14,8 @@ public interface DAOGeneralInterface<Entity> {
 	
 	public Entity findById(int id);
 	
+	public Entity update(Entity entity);
+	
 	public void deleteById(int id);
 	
 

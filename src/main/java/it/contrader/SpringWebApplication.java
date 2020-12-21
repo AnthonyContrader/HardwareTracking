@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
  * @author SpringBoot
  *
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"it.contrader"})
 public class SpringWebApplication {
 
 	public static void main(String[] args) {

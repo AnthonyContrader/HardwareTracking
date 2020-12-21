@@ -35,11 +35,22 @@ public class EmployeeDAO implements DAOGeneralInterface<Employee>{
 	}
 
 	@Override
+	public Employee update(Employee employee) {
+		
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		currentSession.update(employee);
+		
+		return employee;
+		
+	}
+	
+	@Override
 	public Employee save(Employee employee) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		currentSession.saveOrUpdate(employee);
+		currentSession.save(employee);
 		
 		return employee;
 		

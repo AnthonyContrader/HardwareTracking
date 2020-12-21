@@ -50,7 +50,7 @@ public abstract class AbstractService<Entity,DTO> implements ServiceDTO<DTO> {
 	@Override
 	@Transactional
 	public DTO update(DTO dto) {
-		return converter.toDTO(repository.save(converter.toEntity(dto)));
+		return converter.toDTO(repository.update(converter.toEntity(dto)));
 	}
 
 	@Override

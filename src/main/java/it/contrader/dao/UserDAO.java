@@ -39,7 +39,18 @@ public class UserDAO implements UserRepository{
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		currentSession.saveOrUpdate(user);
+		currentSession.save(user);
+		
+		return user;
+		
+	}
+	
+	@Override
+	public User update(User user) {
+		
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		currentSession.update(user);
 		
 		return user;
 		

@@ -25,6 +25,7 @@ import it.contrader.service.ServiceDTO;
  * 
  * @see ServiceDTO<DTO>
  */
+
 public abstract class AbstractController <DTO>{
 
 	@Autowired
@@ -55,5 +56,14 @@ public abstract class AbstractController <DTO>{
 	@GetMapping("/read/{id}")
 	public DTO read(@PathVariable("id") int id) {
 		return service.read(id);
+	}
+	
+	public String formattazione(String string) {
+		
+		String iniziale = string.substring(0,1).toUpperCase();
+		String resto = string.substring(1).toLowerCase();
+		
+		return iniziale.concat(resto);
+		
 	}
 }

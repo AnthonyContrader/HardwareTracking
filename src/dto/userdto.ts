@@ -1,3 +1,4 @@
+import { EmployeeDTO } from "./employeedto";
 
 
 /**
@@ -18,7 +19,7 @@ export class UserDTO {
 
    usertype: string;
 
- 
+   employee: EmployeeDTO;
 
 }
 

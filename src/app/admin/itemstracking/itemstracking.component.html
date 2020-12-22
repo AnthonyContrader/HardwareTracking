@@ -1,7 +1,7 @@
 <div class="container">
   <h1 style="text-align: center; margin-top: 28px;">Manage Items Tracking</h1>
   <div class="row mt-5">
-    <!--<div class="col-md-1">
+    <div class="col-md-1">
 
     </div>
     <div class="col-md-10">
@@ -12,40 +12,22 @@
           <th>Owner's Fiscal Code</th>
           <th>Item Name</th>
           <th>Price</th>
-          <th>Edit</th>
-          <th>Delete</th>
         </tr>
 
-        <tr>
-          <td><input placeholder="First Name" [(ngModel)]="itemlenttoinsert.firstNameOwner"></td>
-          <td><input placeholder="Last Name" [(ngModel)]="itemlenttoinsert.lastNameOwner"></td>
-          <td><input placeholder="Last Name" [(ngModel)]="itemlenttoinsert.fiscalCodeForLent"></td>
-          <td><input placeholder="Last Name" [(ngModel)]="itemlenttoinsert.itemName"></td>
-          <td><input placeholder="Last Name" [(ngModel)]="itemlenttoinsert.lastNameOwner"></td>
-
-          <td>
-            <button (click)="insert(itemlenttoinsert)">Insert</button>
-          </td>
-
-          <td>
-            <button (click)="clear()">Clear</button>
-          </td>
-        </tr>
-
-          <tr *ngFor="let item of items">
+          <tr *ngFor="let employee of employees">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.fiscalCode}}</td>
             <td>
-              <input [(ngModel)]="item.name">
+
+              <table>
+                <tr *ngFor="let item of employee.items">
+                  <td>{{item.name}}</td>
+                </tr>
+              </table>
+
             </td>
-            <td>
-             <input [(ngModel)]="item.price">
-            </td>
-           
-          <td>
-            <button (click)="update(item)">Save</button>
-          </td>
-          <td>
-            <button (click)="delete(item)">Delete</button>
-          </td>
+
         </tr>
       </table>
     </div>

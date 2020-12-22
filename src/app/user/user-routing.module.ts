@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ItemsToRequestComponent } from '../user/itemsToRequest/itemsToRequest.component';
 import { UserLayoutComponent } from '../layout/user-layout/user-layout.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { EmployeesComponent } from '../admin/employees/employees.component';
 
 
 /**

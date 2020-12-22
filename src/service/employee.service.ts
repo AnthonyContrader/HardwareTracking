@@ -6,6 +6,7 @@ import { LoginDTO } from 'src/dto/logindto';
 import { Observable } from 'rxjs';
 import { EmployeeDTO } from 'src/dto/employeedto';
 import { stringify } from '@angular/core/src/util';
+import { ItemDTO } from 'src/dto/itemdto';
 
 /**
 
@@ -23,8 +24,12 @@ export class EmployeeService extends AbstractService<EmployeeDTO>{
   constructor(http: HttpClient) {
     super(http);
     this.type = 'employee';
+    this.port = '8080';
   }
 
+  request(info: string): Observable<string> {
+    return this.http.get<string>('http://localhost:' + this.port + '/' + this.type + '/request/' + info);
+}
 
 
 

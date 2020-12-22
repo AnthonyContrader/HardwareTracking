@@ -18,6 +18,7 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
+    localStorage.setItem('currentUser', JSON.stringify(this.user));
   }
 
 }

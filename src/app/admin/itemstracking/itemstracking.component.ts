@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemLentService } from 'src/service/itemlent.service';
 import { ItemLentDTO } from 'src/dto/itemlentdto';
+import { EmployeeService } from 'src/service/employee.service';
+import { EmployeeDTO } from 'src/dto/employeedto';
 
 @Component({
   selector: 'app-itemstracking',
@@ -9,32 +11,18 @@ import { ItemLentDTO } from 'src/dto/itemlentdto';
 })
 export class ItemsTrackingComponent implements OnInit {
 
-  itemslent: ItemLentDTO[];
-  itemlenttoinsert: ItemLentDTO = new ItemLentDTO();
+  constructor(private service: EmployeeService) { }
 
-  constructor(private service: ItemLentService) { }
+  employees: EmployeeDTO[];
+
 
   ngOnInit() {
-    this.getItemsTracking();
+    this.getEmployees();
   }
 
-  getItemsTracking() {
-    this.service.getAll().subscribe(itemslent => this.itemslent = itemslent);
+  getEmployees() {
+    this.service.getAll().subscribe(employees => this.employees = employees);
   }
 
-  delete(itemlent: ItemLentDTO) {
-    this.service.delete(itemlent.id).subscribe(() => this.getItemsTracking());
-  }
-
-  update(itemlent: ItemLentDTO) {
-    this.service.update(itemlent).subscribe(() => this.getItemsTracking());
-  }
-
-  insert(itemlent: ItemLentDTO) {
-    this.service.insert(itemlent).subscribe(() => this.getItemsTracking());
-  }
-
-  clear(){
-    this.itemlenttoinsert = new ItemLentDTO();
-  }
+  
 }

@@ -1,3 +1,4 @@
+import { ItemDTO } from "./itemdto";
 import { UserDTO } from "./userdto";
 
 export class EmployeeDTO {
@@ -13,6 +14,8 @@ export class EmployeeDTO {
     fiscalCode: string;
 
     user: UserDTO;
+
+    items: ItemDTO[];
 
 
 }

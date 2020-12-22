@@ -25,8 +25,7 @@ tr:nth-child(even) {
 }
 
 td:hover, td:active, td:focus {
-	color: darkblue;
-	font-weight: bold;
+	color: white;
 }
 
 input, select{
@@ -41,5 +40,7 @@ input, select{
 button {
 	padding: auto;
 	height: 44px;
-	background-image: linear-gradient(to right, #00fff2, #0099ff);
+	font-weight: bold;
+	width: 40%;
+	background-image: linear-gradient(to right, #ffa600, #ff1e00);
 }

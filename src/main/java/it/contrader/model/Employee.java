@@ -50,10 +50,10 @@ public class Employee {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	/*
-	@OneToMany(cascade=CascadeType.ALL) 
-	@JoinColumn(name="item_id")
-	private List<Item> itemsLent = new ArrayList<Item>(); */
+	
+	@OneToMany(mappedBy="employee", cascade= {CascadeType.PERSIST, CascadeType.MERGE, 
+			CascadeType.DETACH, CascadeType.REFRESH}) 
+	private List<Item> itemsLent = new ArrayList<Item>(); 
 	
 
 }

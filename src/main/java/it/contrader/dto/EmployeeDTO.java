@@ -33,6 +33,8 @@ public class EmployeeDTO {
 
 	private User user;
 	
-	//private List<Item> itemsLent = new ArrayList<Item>();
+	private List<Item> itemsLent = new ArrayList<Item>();
+	
+	
 
 }

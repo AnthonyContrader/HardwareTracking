@@ -16,7 +16,7 @@ public class EmployeeConverter extends AbstractConverter<Employee, EmployeeDTO>{
 		if (employeeDTO != null) {
 			employee = new Employee(employeeDTO.getId(), employeeDTO.getFirstName(), employeeDTO.getLastName(),
 								employeeDTO.getSalary(), employeeDTO.getFiscalCode(), 
-								employeeDTO.getUser());
+								employeeDTO.getUser(), employeeDTO.getItemsLent());
 		}
 		return employee;
 	}
@@ -27,7 +27,7 @@ public class EmployeeConverter extends AbstractConverter<Employee, EmployeeDTO>{
 		if (employee != null) {
 			employeeDTO = new EmployeeDTO(employee.getId(), employee.getFirstName(), employee.getLastName(),
 									employee.getSalary(), employee.getFiscalCode(), 
-									employee.getUser());
+									employee.getUser(), employee.getItemsLent());
 
 		}
 		return employeeDTO;

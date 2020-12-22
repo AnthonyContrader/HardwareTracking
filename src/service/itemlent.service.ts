@@ -4,7 +4,7 @@ import { UserDTO } from 'src/dto/userdto';
 import { HttpClient } from '@angular/common/http';
 import { LoginDTO } from 'src/dto/logindto';
 import { Observable } from 'rxjs';
-import { ItemLentDTO } from 'src/dto/itemlent';
+import { ItemLentDTO } from 'src/dto/itemlentdto';
 
 /**
  * I service sono decorati da @Injectable. 

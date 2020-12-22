@@ -5,6 +5,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { EmployeesComponent } from './employees/employees.component';
 import { ItemsComponent } from './items/items.component';
 import { UsersComponent } from './users/users.component';
+import { ItemsTrackingComponent } from './itemstracking/itemstracking.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 
 
@@ -26,7 +27,8 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent},
     { path: 'items', component: ItemsComponent},
-    { path: 'employees', component: EmployeesComponent}
+    { path: 'employees', component: EmployeesComponent},
+    { path: 'itemstracking', component: ItemsTrackingComponent}
   ]}
 ];
 

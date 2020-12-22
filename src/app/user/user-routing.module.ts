@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemsComponent } from '../admin/items/items.component';
+import { ItemsToRequestComponent } from '../user/itemsToRequest/itemsToRequest.component';
 import { UserLayoutComponent } from '../layout/user-layout/user-layout.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
@@ -20,7 +20,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 const routes: Routes = [
     { path: 'user-dashboard', component: UserLayoutComponent, children:[
     { path: '', component: UserDashboardComponent},
-    { path: 'items', component: ItemsComponent}
+    { path: 'items', component: ItemsToRequestComponent}
   ]}
 ];
 

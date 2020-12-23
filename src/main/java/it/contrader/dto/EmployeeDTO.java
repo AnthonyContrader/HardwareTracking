@@ -1,6 +1,7 @@
 package it.contrader.dto;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -33,7 +34,7 @@ public class EmployeeDTO {
 
 	private User user;
 	
-	private List<Item> itemsLent = new ArrayList<Item>();
+	private List<Item> itemsLent;
 	
 	
 

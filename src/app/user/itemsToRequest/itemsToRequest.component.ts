@@ -28,8 +28,9 @@ export class ItemsToRequestComponent implements OnInit {
   }
 
   request(info: string){
-    this.employeeService.request(info);
+    this.employeeService.request(info).subscribe(() => this.getItems);
   }
 
   
+
 }

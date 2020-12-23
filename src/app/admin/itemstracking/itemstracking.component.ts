@@ -3,6 +3,7 @@ import { ItemLentService } from 'src/service/itemlent.service';
 import { ItemLentDTO } from 'src/dto/itemlentdto';
 import { EmployeeService } from 'src/service/employee.service';
 import { EmployeeDTO } from 'src/dto/employeedto';
+import { ItemDTO } from 'src/dto/itemdto';
 
 @Component({
   selector: 'app-itemstracking',
@@ -17,12 +18,13 @@ export class ItemsTrackingComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getEmployees();
+    this.trackItems();
   }
 
-  getEmployees() {
-    this.service.getAll().subscribe(employees => this.employees = employees);
+  trackItems() {
+    this.service.trackItems().subscribe(employees => this.employees = employees);
   }
+
 
   
 }

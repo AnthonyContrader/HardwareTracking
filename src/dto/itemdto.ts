@@ -9,6 +9,6 @@ export class ItemDTO{
 
     price: number;
 
-    employee: EmployeeDTO;
+    owners: EmployeeDTO[];
 
 }

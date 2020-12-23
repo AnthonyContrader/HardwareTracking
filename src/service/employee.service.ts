@@ -19,6 +19,7 @@ import { ItemDTO } from 'src/dto/itemdto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmployeeService extends AbstractService<EmployeeDTO>{
 
   constructor(http: HttpClient) {
@@ -27,12 +28,13 @@ export class EmployeeService extends AbstractService<EmployeeDTO>{
     this.port = '8080';
   }
 
-  request(info: string): Observable<string> {
-    return this.http.get<string>('http://localhost:' + this.port + '/' + this.type + '/request/' + info);
-}
+    request(info: string): Observable<any>{
+      return this.http.get<any>('http://localhost:' + this.port + '/' + this.type + '/request/' + info);
+    }
 
-
-
+    trackItems(): Observable<EmployeeDTO[]> {
+      return this.http.get<EmployeeDTO[]>('http://localhost:' + this.port + '/' + this.type + '/track');
+  }
 
 }
 

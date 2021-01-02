@@ -22,8 +22,6 @@ public class ItemLentDTO{
 	
 	private String itemName;
 	
-	private int price;
-	
 	private String fiscalCodeForLent;
 
 	

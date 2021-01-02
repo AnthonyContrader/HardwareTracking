@@ -15,7 +15,7 @@ public class ItemLentConverter extends AbstractConverter<ItemLent, ItemLentDTO>{
 		if (itemLentDTO != null) {
 			user = new ItemLent(itemLentDTO.getId(), itemLentDTO.getFirstNameOwner(), 
 					itemLentDTO.getLastNameOwner(), itemLentDTO.getItemName(),
-					itemLentDTO.getPrice(), itemLentDTO.getFiscalCodeForLent());
+					itemLentDTO.getFiscalCodeForLent());
 		}
 		return user;
 	}
@@ -26,7 +26,7 @@ public class ItemLentConverter extends AbstractConverter<ItemLent, ItemLentDTO>{
 		if (itemLent != null) {
 			itemLentDTO = new ItemLentDTO(itemLent.getId(), itemLent.getFirstNameOwner(), 
 					itemLent.getLastNameOwner(), itemLent.getItemName(),
-					itemLent.getPrice(), itemLent.getFiscalCodeForLent());
+					itemLent.getFiscalCodeForLent());
 
 		}
 		return itemLentDTO;

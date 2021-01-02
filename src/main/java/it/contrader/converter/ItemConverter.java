@@ -12,7 +12,7 @@ public class ItemConverter extends AbstractConverter<Item, ItemDTO>{
 	public Item toEntity(ItemDTO itemDTO) {
 		Item item = null;
 		if (itemDTO != null) {
-			item = new Item(itemDTO.getId(), itemDTO.getName(), itemDTO.getPrice(), itemDTO.getOwners());
+			item = new Item(itemDTO.getId(), itemDTO.getName(), itemDTO.getPrice());
 		}
 		return item;
 	}
@@ -21,7 +21,7 @@ public class ItemConverter extends AbstractConverter<Item, ItemDTO>{
 	public ItemDTO toDTO(Item item) {
 		ItemDTO userDTO = null;
 		if (item != null) {
-			userDTO = new ItemDTO(item.getId(), item.getName(), item.getPrice(), item.getOwners());
+			userDTO = new ItemDTO(item.getId(), item.getName(), item.getPrice());
 
 		}
 		return userDTO;

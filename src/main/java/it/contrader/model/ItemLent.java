@@ -9,12 +9,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name="itemlent")
 public class ItemLent {
 	
@@ -31,9 +33,6 @@ public class ItemLent {
 	
 	@Column(name="item_name")
 	private String itemName;
-	
-	@Column(name="price")
-	private int price;
 	
 	@Column(name="fiscal_code_for_lent")
 	private String fiscalCodeForLent;

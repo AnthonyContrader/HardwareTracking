@@ -1,5 +1,7 @@
 package it.contrader.dao;
 
+
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,16 +11,21 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import it.contrader.model.ItemLent;
 
 @Repository
-public class ItemLentDAO implements DAOGeneralInterface<ItemLent>{
+public class ItemLentDAO{
 	
 	
 	@Autowired
 	private EntityManager entityManager;
 	
-	@Override
+	public ItemLentDAO() {
+		
+	}
+	
+	
 	public List<ItemLent> findAll() {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -32,52 +39,33 @@ public class ItemLentDAO implements DAOGeneralInterface<ItemLent>{
 	}
 	
 
-	@Override
-	public ItemLent findById(int id) {
-		
-		Session currentSession = entityManager.unwrap(Session.class);
-		
-		ItemLent itemLent = currentSession.get(ItemLent.class, id);
-		
-		return itemLent;
-	}
 
-	@Override
 	public ItemLent save(ItemLent itemLent) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
 		currentSession.save(itemLent);
 		
-		//save/update the customer
 		return itemLent;
 		
 	}
 	
-	@Override
-	public ItemLent update(ItemLent itemLent) {
-		
-		Session currentSession = entityManager.unwrap(Session.class);
-		
-		currentSession.update(itemLent);
-		
-		//save/update the customer
-		return itemLent;
-		
-	}
-
-	@Override
-	public void deleteById(int id) {
+	
+	
+	public void delete(String fiscalCode, String itemName) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
 		@SuppressWarnings("unchecked")
-		Query<ItemLent> query = currentSession.createQuery("delete from ItemLent where id=:itemLentId");
+		Query<ItemLent> query = currentSession.createQuery("delete from ItemLent x where "
+				+ "x.fiscalCodeForLent=:fiscalCode AND x.itemName=:itemName");
 		
-		query.setParameter("itemLentId", id);
+		query.setParameter("fiscalCode", fiscalCode);
+		query.setParameter("itemName", itemName);
 		
 		query.executeUpdate();
 	}
+	
 
 
 }

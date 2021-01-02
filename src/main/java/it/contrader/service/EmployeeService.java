@@ -20,12 +20,14 @@ public class EmployeeService extends AbstractService<Employee, EmployeeDTO>{
 	@Autowired
 	EmployeeDAO dao;
 	
+	/*
+	
 	@Transactional
 	public void addItem(int itemId, int employeeId) {
 		
 		dao.add(itemId, employeeId);
 		
 	}
-	
+	  */
 	
 }

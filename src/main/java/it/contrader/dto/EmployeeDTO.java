@@ -1,13 +1,9 @@
 package it.contrader.dto;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import it.contrader.model.Item;
 import it.contrader.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,7 +30,7 @@ public class EmployeeDTO {
 
 	private User user;
 	
-	private List<Item> itemsLent;
+	//private List<Item> itemsLent;
 	
 	
 

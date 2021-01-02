@@ -1,20 +1,12 @@
 package it.contrader.model;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -50,16 +42,18 @@ public class Employee {
 	@Column(name="fiscal_code")
 	private String fiscalCode;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
 	private User user;
+	
+	/*
 	
 	@ManyToMany(fetch=FetchType.LAZY, 
 				cascade= {CascadeType.MERGE, CascadeType.PERSIST,
 						  CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinTable(name="employee_item", joinColumns=@JoinColumn(name="employee_id"),
-				inverseJoinColumns=@JoinColumn(name="item_id"))
+	@JoinTable(name="employee_item", joinColumns= {@JoinColumn(name="employee_id")},
+				inverseJoinColumns= { @JoinColumn(name="item_id") } )
 	private List<Item> itemsLent; 
-	
+	 */
 
 }

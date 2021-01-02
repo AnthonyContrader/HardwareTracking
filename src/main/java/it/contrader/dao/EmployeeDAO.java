@@ -1,6 +1,6 @@
 package it.contrader.dao;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import it.contrader.model.Employee;
-import it.contrader.model.Item;
+
 
 
 @Repository
@@ -83,6 +83,7 @@ public class EmployeeDAO implements DAOGeneralInterface<Employee>{
 		
 	}
 	
+	/*
 	public void add(int itemId, int employeeId) {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
@@ -108,8 +109,10 @@ public class EmployeeDAO implements DAOGeneralInterface<Employee>{
 		
 		for(Item x: itemsLent)
 			System.out.println(x.getName());
-	}
-	
+	} */
 	
 
+
 }
+
+

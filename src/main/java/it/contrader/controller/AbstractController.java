@@ -58,12 +58,6 @@ public abstract class AbstractController <DTO>{
 		return service.read(id);
 	}
 	
-	public String formattazione(String string) {
-		
-		String iniziale = string.substring(0,1).toUpperCase();
-		String resto = string.substring(1).toLowerCase();
-		
-		return iniziale.concat(resto);
-		
-	}
+	
+	
 }

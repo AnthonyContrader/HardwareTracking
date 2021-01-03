@@ -4,45 +4,43 @@
 
 /*Tables*/
 table {
-	border-collapse: collapse;
 	width: 100%;
 	float: left;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
 }
 
 th, td {
 	text-align: center;
-	padding: 2px;
-}
-
-td{
-    font-size: 16px;
-}
-
-
-tr:nth-child(even) {
-	background-color: #ffdb99;
+	font-size: 16px;
+	width: fit-content;
 }
 
 th {
+	padding: 10px;
 	background-color: darkorange;
 	color: #ffffff;
 }
 
-a:hover {
-	color: #999999;
+tr:nth-child(even) {
+	background-color: #fff3eb;
+}
+
+td:hover, td:active, td:focus {
+	color: white;
 }
 
 input, select{
     background-color: inherit;
-    font-size: inherit;
+	font-size: inherit;
+	width: 100%;
+	padding: 10px;
+	border: 0;
+	outline: none;
 }
 
-input:hover,  input:active, input:focus{
-    border: 2px solid crimson;
-}
-
-button:hover{
-    background-color: crimson;
+button {
+	padding: auto;
+	height: 44px;
+	font-weight: bold;
+	width: 40%;
+	background-image: linear-gradient(to right, #ffa600, #ff1e00);
 }

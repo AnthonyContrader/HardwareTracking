@@ -4,6 +4,9 @@ import { ItemsToRequestComponent } from '../user/itemsToRequest/itemsToRequest.c
 import { UserLayoutComponent } from '../layout/user-layout/user-layout.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { EmployeesComponent } from '../admin/employees/employees.component';
+import { ItemsToReturnComponent } from '../user/itemsToReturn/itemsToReturn.component';
+import { WorkInProgressComponent } from '../admin/work-in-progress/work-in-progress.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 /**
@@ -21,7 +24,9 @@ import { EmployeesComponent } from '../admin/employees/employees.component';
 const routes: Routes = [
     { path: 'user-dashboard', component: UserLayoutComponent, children:[
     { path: '', component: UserDashboardComponent},
-    { path: 'items', component: ItemsToRequestComponent}
+    { path: 'items', component: ItemsToRequestComponent},
+    { path: 'myrequests', component: ItemsToReturnComponent},
+    { path: 'editprofile', component: EditProfileComponent}
   ]}
 ];
 

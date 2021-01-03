@@ -17,8 +17,8 @@
             <td>{{item.price}}</td>
            
           <td>
-            <button (click)="request(item.id.toString().concat(user.employee.id.toString()))
-            ">Request</button>
+            <button (click)="createRequest(user.employee.firstName, 
+                    user.employee.lastName, item.name, user.employee.fiscalCode)">Request</button>
           </td>
         </tr>
       </table>

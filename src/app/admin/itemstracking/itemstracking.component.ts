@@ -12,9 +12,9 @@ import { ItemDTO } from 'src/dto/itemdto';
 })
 export class ItemsTrackingComponent implements OnInit {
 
-  constructor(private service: EmployeeService) { }
+  constructor(private service: ItemLentService) { }
 
-  employees: EmployeeDTO[];
+  itemsLent: ItemLentDTO[];
 
 
   ngOnInit() {
@@ -22,9 +22,13 @@ export class ItemsTrackingComponent implements OnInit {
   }
 
   trackItems() {
-    this.service.trackItems().subscribe(employees => this.employees = employees);
+    this.service.getAll().subscribe(itemsLent => this.itemsLent = itemsLent);
   }
 
+  download(){
+    this.service.download().subscribe(() => this.itemsLent);
+
+  }
 
   
 }

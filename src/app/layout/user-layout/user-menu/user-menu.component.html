@@ -11,7 +11,7 @@
             </button>
             <div class="collapsebtn" id="account" *ngIf="isAccountCollapsed">
                 <button class="menubtn" style="background-color: #334247; padding-left: 40px">
-                    <a [routerLink]="['/user-dashboard/work-in-progress']"> <i class="fas fa-user-edit"
+                    <a [routerLink]="['/user-dashboard/editprofile']"> <i class="fas fa-user-edit"
                             style="margin-right: 15px"></i>
                         Edit Profile</a>
                 </button>
@@ -39,7 +39,7 @@
             </button>
             <div class="collapsebtn" id="returns" *ngIf="isReturnCollapsed">
                 <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
-                    <a [routerLink]="['/user-dashboard/employees']"> <i class="fas fa-edit" style="margin-right: 10px">
+                    <a [routerLink]="['/user-dashboard/myrequests']"> <i class="fas fa-edit" style="margin-right: 10px">
                         </i> Manage Returns </a>
                 </button>
             </div>

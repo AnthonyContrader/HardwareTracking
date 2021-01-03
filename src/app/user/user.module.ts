@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ItemsToRequestComponent } from './itemsToRequest/itemsToRequest.component';
-import { EmployeesComponent } from '../admin/employees/employees.component';
+import { ItemsToReturnComponent } from './itemsToReturn/itemsToReturn.component';
+import { EditProfileComponent} from '../user/edit-profile/edit-profile.component';
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -15,7 +16,8 @@ import { EmployeesComponent } from '../admin/employees/employees.component';
  * @see UserRoutingModule
  */
 @NgModule({
-  declarations: [UserDashboardComponent, ItemsToRequestComponent],
+  declarations: [UserDashboardComponent, ItemsToRequestComponent, 
+    ItemsToReturnComponent, EditProfileComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 style="text-align: center; margin-top: 28px;">Your Requests</h1>
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Return</th>
+        </tr>
+
+          <tr *ngFor="let item of items">
+            <td>{{item.itemName}}</td>
+           
+          <td>
+            <button (click)="return(user.employee.fiscalCode+'-'+item.itemName)">Return</button> 
+          </td> 
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>
+

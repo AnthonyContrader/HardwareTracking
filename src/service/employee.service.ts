@@ -28,13 +28,5 @@ export class EmployeeService extends AbstractService<EmployeeDTO>{
     this.port = '8080';
   }
 
-    request(info: string): Observable<any>{
-      return this.http.get<any>('http://localhost:' + this.port + '/' + this.type + '/request/' + info);
-    }
-
-    trackItems(): Observable<EmployeeDTO[]> {
-      return this.http.get<EmployeeDTO[]>('http://localhost:' + this.port + '/' + this.type + '/track');
-  }
-
 }
 

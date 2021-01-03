@@ -15,7 +15,4 @@ export class EmployeeDTO {
 
     user: UserDTO;
 
-    itemsLent: ItemDTO[];
-
-
 }

@@ -7,28 +7,17 @@
     <div class="col-md-10">
       <table>
         <tr>
-          <th>Owner's First Name</th>
-          <th>Owner's Last  Name</th>
+          <th>Owner's Last Name</th>
+          <th>Owner's First  Name</th>
           <th>Owner's Fiscal Code</th>
           <th>Item Name</th>
-          <th>Price</th>
         </tr>
 
-          <tr *ngFor="let employee of employees">
-            <td>{{employee.firstName}}</td>
-            <td>{{employee.lastName}}</td>
-            <td>{{employee.fiscalCode}}</td>
-            <td>
-              
-              
-              <table>
-                <tr *ngFor="let item of employee.itemsLent">
-                  <td>{{item.name}}</td>
-                  <td>{{item.price}}</td>
-                </tr>
-              </table>
-              
-            </td>
+          <tr *ngFor="let itemlent of itemsLent">
+            <td>{{itemlent.lastNameOwner}}</td>
+            <td>{{itemlent.firstNameOwner}}</td>
+            <td>{{itemlent.fiscalCodeForLent}}</td>
+            <td>{{itemlent.itemName}}</td>
 
         </tr>
       </table>
@@ -37,4 +26,7 @@
 
     </div>-->
   </div>
+
+  <button (click)="download()">Download</button>
+
 </div>

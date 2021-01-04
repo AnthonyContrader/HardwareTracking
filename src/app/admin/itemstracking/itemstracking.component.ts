@@ -27,6 +27,6 @@ export class ItemsTrackingComponent implements OnInit {
 
   download(){
     this.service.download().subscribe(() => this.itemsLent);
-    alert("\t\t     Download Completato! \nControllare all'interno della cartella 'src' del Back");
+    /*alert("\t\t     Download Completato! \nControllare all'interno della cartella 'src' del Back");*/
   }
 }

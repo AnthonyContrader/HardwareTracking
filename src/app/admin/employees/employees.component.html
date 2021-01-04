@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container" style="background-color: transparent;">
   <h1 style="text-align: center; margin-top: 28px;">Manage Employees</h1>
   <div class="row mt-5">
-    <div class="col-md-12">
+    <div class="col-md-12 scrollable">
       <table>
-        <tr>
+        <tr class="t-headers">
           <th>First Name</th>
           <th>Last Name</th>
           <th>Salary</th>
@@ -19,14 +19,14 @@
           <td><input placeholder="Fiscal Code" [(ngModel)]="employeetoinsert.fiscalCode"></td>
 
         
-          <td>
+          <td class="insert">
             <button (click)="createUserBefore(employeetoinsert.firstName,
                                               employeetoinsert.lastName,
                                               employeetoinsert.salary,
                                               employeetoinsert.fiscalCode)">Insert</button>
           </td>
 
-          <td>
+          <td class="clear">
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
@@ -45,13 +45,13 @@
               <input [(ngModel)]="employee.fiscalCode">
              </td>
           
-          <td>
-            <button (click)="update(employee)">Save</button>
-          </td>
-          <td>
-            <button (click)="delete(employee)">Delete</button>
-          </td>
-        </tr>
+            <td class="save">
+              <button (click)="update(employee)">Save</button>
+            </td>
+            <td class="delete">
+              <button (click)="delete(employee)">Delete</button>
+            </td>
+          </tr>
       </table>
     </div>
   </div>

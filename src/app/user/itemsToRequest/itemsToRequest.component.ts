@@ -41,7 +41,4 @@ export class ItemsToRequestComponent implements OnInit {
 
             this.request(this.itemtorequest);
                 }
-
-  
-
 }

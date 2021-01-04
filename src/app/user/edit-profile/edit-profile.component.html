@@ -1,8 +1,13 @@
 <body>
-    <br><br>
-    Your username: <input [(ngModel)]="user.username">
-    <br><br>
-    Your password: <input [(ngModel)]="user.password">
-    <br><br>
-    <button (click)="update(user)">Update</button>
+    <table>
+        <tr>
+            <td>Your username: <input [(ngModel)]="user.username"></td>
+        </tr>
+        <tr>
+            <td>Your password: <input [(ngModel)]="user.password"></td>
+        </tr>
+        <tr>
+            <td><button (click)="update(user)">Update</button></td>
+        </tr>
+    </table>
 </body>

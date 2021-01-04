@@ -2,37 +2,56 @@
     text-align: center;
 }
 
-/*Tables*/
+/*---------------------
+		 Table
+---------------------*/
 table {
 	width: 100%;
 	float: left;
+	box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+}
+
+.t-headers {
+	box-shadow: 0 5px 20px 0 rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.1);
 }
 
 th, td {
 	text-align: center;
 	font-size: 16px;
 	width: fit-content;
+	padding: 10px;
 }
 
 th {
 	padding: 10px;
-	background-color: darkorange;
+	background-color: rgb(0, 195, 255);
 	color: #ffffff;
+	position: sticky;
+	top: 0;
 }
 
 tr:nth-child(even) {
-	background-color: #fff3eb;
+	background-color: rgba(0, 217, 255, 0.055);
 }
 
-td:hover, td:active, td:focus {
-	background-color: darkorange;
-	color: white;
+tr:nth-child(odd) {
+	background-color: white;
 }
 
-a:hover {
-	color: red;
+tr:hover {
+	background-color: rgba(0, 217, 255, 0.2);
 }
 
+td:hover {
+	background-color: rgba(0, 217, 255, 0.9);
+	transition: 0.2s;
+}
+
+/*---------------------
+	Input & Select
+---------------------*/
 input, select{
     background-color: inherit;
 	font-size: inherit;
@@ -42,11 +61,42 @@ input, select{
 	outline: none;
 }
 
+/*---------------------
+	    Buttons
+---------------------*/
 button {
 	border: 0;
-	padding: auto;
-	width: 100%;
-	display: block;
-	height: 44px;
-	background-color: transparent;
+	padding: 6px 12px;
+}
+
+/*---------------------
+	 Download Btn
+---------------------*/
+.btn-download {
+	text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
+	padding: 10px 30px;
+	background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%);
+	font-size: 16px;
+	font-weight: bolder;
+}
+
+.btn-download:hover {
+	background-position: right center;
+    color: #fff;
+	text-decoration: none;
+}
+
+/*---------------------
+	 Scoll Option
+---------------------*/
+.scrollable {
+	overflow-y: auto;
+	max-height: 36vw;
+	padding: 0;
+	box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
 }

@@ -1,24 +1,30 @@
 <div class="row">
     <div class="col-md-12">
         <div class="sidenav">
-            <button class="menubtn">
-                <a [routerLink]="['/user-dashboard']"> <i class="fas fa-home" style="margin-right: 10px"> </i>
-                    Dashboard </a>
-            </button>
+            <a [routerLink]="['/user-dashboard']"> 
+                <button class="menubtn">
+                    <i class="fas fa-home" style="margin-right: 10px"> </i>
+                        Dashboard 
+                </button>
+            </a>
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#account"
                 (click)="accountcollapse()">
                 <i class="fas fa-user" style="margin-right: 15px"></i> Account
             </button>
             <div class="collapsebtn" id="account" *ngIf="isAccountCollapsed">
-                <button class="menubtn" style="background-color: #334247; padding-left: 40px">
-                    <a [routerLink]="['/user-dashboard/editprofile']"> <i class="fas fa-user-edit"
-                            style="margin-right: 15px"></i>
-                        Edit Profile</a>
-                </button>
-                <button class="menubtn" style="background-color: #334247; padding-left: 40px">
-                    <a [routerLink]="['/user-dashboard/work-in-progress']"><i class="fas fa-file-alt"
-                            style="margin-right: 15px"></i>General Info</a>
-                </button>
+                <a [routerLink]="['/user-dashboard/editprofile']"> 
+                    <button class="menubtn" style="background-color: #334247; padding-left: 40px">
+                        <i class="fas fa-user-edit"
+                                style="margin-right: 15px"></i>
+                            Edit Profile
+                    </button>
+                </a>
+                <a [routerLink]="['/user-dashboard/work-in-progress']">
+                    <button class="menubtn" style="background-color: #334247; padding-left: 40px">
+                        <i class="fas fa-file-alt"
+                                style="margin-right: 15px"></i>General Info
+                    </button>
+                </a>
             </div>
             <!-- Requests -->
             <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#requests"
@@ -26,10 +32,12 @@
                 <i class="fas fa-exchange-alt" style="margin-right: 15px"></i>Requests
             </button>
             <div class="collapsebtn" id="requests" *ngIf="isRequestCollapsed">
-                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
-                    <a [routerLink]="['/user-dashboard/items']"> <i class="fas fa-edit" style="margin-right: 10px">
-                        </i> Manage Requests </a>
-                </button>
+                <a [routerLink]="['/user-dashboard/items']"> 
+                    <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                        <i class="fas fa-edit" style="margin-right: 10px">
+                            </i> Manage Requests
+                    </button>
+                </a>
             </div>
             <!-- /Requests -->
             <!-- Returns -->
@@ -38,10 +46,12 @@
                 <i class="fas fa-undo-alt" style="margin-right: 15px"></i>Returns
             </button>
             <div class="collapsebtn" id="returns" *ngIf="isReturnCollapsed">
-                <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
-                    <a [routerLink]="['/user-dashboard/myrequests']"> <i class="fas fa-edit" style="margin-right: 10px">
-                        </i> Manage Returns </a>
-                </button>
+                <a [routerLink]="['/user-dashboard/myrequests']"> 
+                    <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                        <i class="fas fa-edit" style="margin-right: 10px">
+                            </i> Manage Returns 
+                    </button>
+                </a>
             </div>
             <!-- /Returns -->
             <button class="menubtn" (click)="logout()">

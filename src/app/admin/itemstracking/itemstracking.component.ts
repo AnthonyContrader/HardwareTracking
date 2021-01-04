@@ -27,8 +27,5 @@ export class ItemsTrackingComponent implements OnInit {
 
   download(){
     this.service.download().subscribe(() => this.itemsLent);
-
   }
-
-  
 }

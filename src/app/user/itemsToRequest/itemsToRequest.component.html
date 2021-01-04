@@ -4,9 +4,9 @@
     <div class="col-md-1">
 
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 scrollable">
       <table>
-        <tr>
+        <tr class="t-headers">
           <th>Name</th>
           <th>Price</th>
           <th>Request</th>
@@ -16,7 +16,7 @@
             <td>{{item.name}}</td>
             <td>{{item.price}}</td>
            
-          <td>
+          <td class="request">
             <button (click)="createRequest(user.employee.firstName, 
                     user.employee.lastName, item.name, user.employee.fiscalCode)">Request</button>
           </td>

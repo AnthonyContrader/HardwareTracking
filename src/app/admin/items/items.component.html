@@ -4,9 +4,9 @@
     <div class="col-md-1">
 
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 scrollable">
       <table>
-        <tr>
+        <tr class="t-headers">
           <th>Name</th>
           <th>Price</th>
           <th>Edit</th>
@@ -17,11 +17,11 @@
           <td><input placeholder="name" [(ngModel)]="itemtoinsert.name"></td>
           <td><input placeholder="price" [(ngModel)]="itemtoinsert.price"></td>
 
-          <td>
+          <td class="insert">
             <button (click)="insert(itemtoinsert)">Insert</button>
           </td>
 
-          <td>
+          <td class="clear">
             <button (click)="clear()">Clear</button>
           </td>
         </tr>
@@ -34,10 +34,10 @@
              <input [(ngModel)]="item.price">
             </td>
            
-          <td>
+          <td class="save">
             <button (click)="update(item)">Save</button>
           </td>
-          <td>
+          <td class="delete">
             <button (click)="delete(item)">Delete</button>
           </td>
         </tr>

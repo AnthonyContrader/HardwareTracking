@@ -27,17 +27,23 @@ export class UserMenuComponent implements OnInit {
   requestscollapse() {
     if (this.isRequestCollapsed === false) {
       this.isRequestCollapsed = true;
+      this.isReturnCollapsed = false;
+      this.isAccountCollapsed = false;
     } else { this.isRequestCollapsed = false; }
   }
 
   returnscollapse() {
     if (this.isReturnCollapsed === false) {
+      this.isRequestCollapsed = false;
       this.isReturnCollapsed = true;
+      this.isAccountCollapsed = false;
     } else { this.isReturnCollapsed = false; }
   }
 
   accountcollapse() {
     if (this.isAccountCollapsed === false) {
+      this.isRequestCollapsed = false;
+      this.isReturnCollapsed = false;
       this.isAccountCollapsed = true;
     } else { this.isAccountCollapsed = false; }
   }

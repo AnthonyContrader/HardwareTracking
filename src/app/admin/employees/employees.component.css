@@ -2,10 +2,25 @@
     text-align: center;
 }
 
+.scrollable {
+	overflow-y: auto;
+	max-height: 36vw;
+	padding: 0;
+	box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+}
+
 /*Tables*/
 table {
 	width: 100%;
 	float: left;
+	box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+}
+
+.t-headers {
+	box-shadow: 0 5px 20px 0 rgba(0,0,0,.1);
+	-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.1);
 }
 
 th, td {
@@ -16,24 +31,33 @@ th, td {
 
 th {
 	padding: 10px;
-	background-color: darkorange;
+	background-color: rgb(0, 195, 255);
 	color: #ffffff;
+	position: sticky;
+	top: 0;
 }
 
 tr:nth-child(even) {
-	background-color: #fff3eb;
+	background-color: rgba(0, 217, 255, 0.055);
 }
 
-td:hover, td:active, td:focus {
-	/*background-color: #b87046;
+tr:nth-child(odd) {
+	background-color: white;
+}
+
+/*td:hover, td:active, td:focus {
+	background-color: #b87046;
 	background-color: #fad5bd;
-	color: #fa8542;*/
-	background-color: darkorange;
-	color: white;
+	color: #fa8542;
+}*/
+
+tr:hover {
+	background-color: rgba(0, 217, 255, 0.2);
 }
 
-a:hover {
-	color: red;
+td:hover {
+	background-color: rgba(0, 217, 255, 0.9);
+	transition: 0.2s;
 }
 
 input, select{
@@ -49,11 +73,11 @@ button {
 	/*color: white;
 	font-weight: bolder;*/
 	border: 0;
-	padding: auto;
+	padding: 6px 12px;
+	/*padding: auto;
 	width: 100%;
 	display: block;
 	height: 44px;
-	background-color: transparent;/*
 	transition: 0.35s;
 	background-size: 200% auto;
 	background-image: linear-gradient(to right, #FF512F 0%, darkorange  51%, #FF512F  100%);*/
@@ -62,3 +86,101 @@ button {
 /*button:hover{
     background-position: right center;
 }*/
+
+/*.options:hover {
+	background-color: ;
+}*/
+
+.insert:hover {
+	background-color: transparent;
+}
+
+.insert button {
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
+	display: block;
+	padding: 5px 17px;
+	background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);
+	margin:0 auto;
+    display:block;
+}
+
+.insert button:hover {
+	background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.clear:hover {
+	background-color: transparent;
+}
+
+.clear button {
+	text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
+	display: block;
+	padding: 5px 25px;
+	background-image: linear-gradient(to right, #fe8c00 0%, #f83600  51%, #fe8c00  100%);
+	margin:0 auto;
+    display:block;
+}
+
+.clear button:hover {
+	background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ------------------------------------------------ */
+
+.save:hover {
+	background-color: transparent;
+}
+
+.save button {
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
+	display: block;
+	padding: 5px 20px;
+	background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%);
+	margin:0 auto;
+    display:block;
+}
+
+.save button:hover {
+	background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.delete:hover {
+	background-color: transparent;
+}
+
+.delete button {
+	text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
+	display: block;
+	padding: 5px 20px;
+	background-image: linear-gradient(to right, #f11c1c 0%, #f48443  51%, #e21f1f  100%);
+	margin:0 auto;
+    display:block;
+}
+
+.delete button:hover {
+	background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}

@@ -23,6 +23,7 @@ export class ItemsComponent implements OnInit {
   }
 
   delete(item: ItemDTO) {
+    if(confirm("Are you sure?"))
     this.service.delete(item.id).subscribe(() => this.getItems());
   }
 

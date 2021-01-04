@@ -25,6 +25,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   delete(employee: EmployeeDTO) {
+    if(confirm("Are you sure?"))
     this.service.delete(employee.id).subscribe(() => this.getEmployees());
   }
 

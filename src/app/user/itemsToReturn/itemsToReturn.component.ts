@@ -28,6 +28,7 @@ export class ItemsToReturnComponent implements OnInit {
   }
 
   return(info: string){
+    if(confirm("Are you sure?"))
     this.service.return(info).subscribe(() => this.getMyRequests(this.user.employee.fiscalCode));
   }
   

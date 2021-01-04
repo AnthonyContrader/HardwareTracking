@@ -29,16 +29,19 @@ export class ItemsToRequestComponent implements OnInit {
   }
 
   request(dto: ItemLentDTO){
+   
     this.itemLentService.request(dto).subscribe(() => this.getItems);
   }
 
   createRequest(firstName: string, lastName: string, 
                 itemName: string, fiscalCodeForLent: string){
+                  if(confirm("Are you sure?")){
                   this.itemtorequest.firstNameOwner = firstName;
                   this.itemtorequest.lastNameOwner = lastName;
                   this.itemtorequest.fiscalCodeForLent = fiscalCodeForLent;
                   this.itemtorequest.itemName = itemName;
 
             this.request(this.itemtorequest);
+                  }
                 }
 }

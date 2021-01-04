@@ -23,6 +23,7 @@ export class UsersComponent implements OnInit {
   }
 
   delete(user: UserDTO) {
+    if(confirm("Are you sure?"))
     this.service.delete(user.id).subscribe(() => this.getUsers());
   }
 

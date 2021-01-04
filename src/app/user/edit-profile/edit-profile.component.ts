@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersComponent } from 'src/app/admin/users/users.component';
 import { UserDTO } from 'src/dto/userdto';
 import { UserService } from 'src/service/user.service';
 
@@ -13,13 +14,14 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private service: UserService) { }
 
+  usersComponent: UsersComponent = new UsersComponent(this.service);
+
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   update(user: UserDTO){
-    console.log(user.username + " " + user.password + " " + user.usertype);
-    this.service.update(user).subscribe(() => this.user);
+    this.usersComponent.update(user);
   }
 
 }

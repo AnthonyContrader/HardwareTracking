@@ -31,5 +31,4 @@ export class ItemsToReturnComponent implements OnInit {
     this.service.return(info).subscribe(() => this.getMyRequests(this.user.employee.fiscalCode));
   }
   
-
 }

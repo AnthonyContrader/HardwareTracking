@@ -36,5 +36,16 @@ public class ItemLent {
 	
 	@Column(name="fiscal_code_for_lent")
 	private String fiscalCodeForLent;
+	
+	@Column(name="date_of_request")
+	private String date;
+
+	@Override
+	public String toString() {
+		return firstNameOwner + " " + lastNameOwner + " (" + fiscalCodeForLent +
+				") DETIENE " + itemName + "; DATA RICHIESTA: " + date; 
+	}
+	
+	
 
 }

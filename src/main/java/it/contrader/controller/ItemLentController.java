@@ -1,12 +1,14 @@
 package it.contrader.controller;
 
-import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +19,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import it.contrader.dto.ItemLentDTO;
 import it.contrader.service.ItemLentService;
@@ -43,7 +56,6 @@ public class ItemLentController {
 			if(tempItemLent.getFiscalCodeForLent().equals(fiscalCode))
 				myRequests.add(tempItemLent);
 		
-		
 		return myRequests;
 	}
 	
@@ -60,6 +72,10 @@ public class ItemLentController {
 						exists = true;
 		
 		if(!exists) {
+			SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+			Date date = new Date(System.currentTimeMillis());
+			formatter.format(date);
+			dto.setDate(formatter.format(date));
 			service.insert(dto);
 			return dto;
 		} else
@@ -76,22 +92,91 @@ public class ItemLentController {
 		service.delete(fiscalCode, itemName);
 	}
 	
-	@GetMapping("/download")
+	@GetMapping("/downloadstandard")
 	public void download() {
 		
-		Path percorso = FileSystems.getDefault().getPath("src", "trackItems.txt");
-		
-		try (BufferedWriter bw = Files.newBufferedWriter(percorso)) {
+		try{
+			
+			Document document = new Document();
+			String path = "C:\\Users\\Simone Briffa\\Desktop\\Contrader\\Angular\\HardwareTracking - Angular\\src\\assets\\trackItemsStandard.pdf";
+			PdfWriter.getInstance(document, new FileOutputStream(path));
 
+			document.open();
+			Font font = FontFactory.getFont(FontFactory.COURIER, 10, BaseColor.BLACK);
+			String info = "TRACK ITEMS";
+			int i = 1;
+			
             for(ItemLentDTO tempItem: service.getAll()) {
-            	bw.write(String.valueOf(tempItem));
-            	bw.newLine();
-            }
+            	info += "\n " + i + ") " + tempItem.toString();
+            	i++;
+            } 
             
-		}catch (IOException e) {
+            System.out.println(info);
+            
+            Paragraph chunk = new Paragraph(info, font);
+            document.add(chunk);
+            
+            document.close();
+            
+		}catch (DocumentException  e) {
             e.getMessage();
             e.printStackTrace();
-        }
+        } catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@GetMapping("/downloadtable")
+	public void downloadtable() {
+		
+	try {
+		
+		Document document = new Document();
+		String path = "C:\\Users\\Simone Briffa\\Desktop\\Contrader\\Angular\\HardwareTracking - Angular\\src\\assets\\trackItemsTable.pdf";
+		
+		PdfWriter.getInstance(document, new FileOutputStream(path));
+
+		document.open();
+
+		PdfPTable table = new PdfPTable(5);
+		addTableHeader(table);
+		addRows(table);
+
+		document.add(table);
+		
+		document.close();
+		
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private void addTableHeader(PdfPTable table) {
+	    Stream.of("FIRST NAME", "LAST NAME", "FISCAL CODE", "ITEM", "DATE OF REQUEST")
+	      .forEach(columnTitle -> {
+	        PdfPCell header = new PdfPCell();
+	        header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+	        header.setBorderWidth(2);
+	        header.setPhrase(new Phrase(columnTitle));
+	        table.addCell(header);
+	    });
+	}
+	
+	private void addRows(PdfPTable table) {
+		
+		for(ItemLentDTO item: service.getAll()) {
+		
+			table.addCell(item.getFirstNameOwner());
+			table.addCell(item.getLastNameOwner());
+			table.addCell(item.getFiscalCodeForLent());
+			table.addCell(item.getItemName());
+			table.addCell(item.getDate());
+		}
+		
 	}
 	
 

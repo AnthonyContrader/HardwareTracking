@@ -8,11 +8,13 @@
       <table>
         <tr class="t-headers">
           <th>Name</th>
+          <th>Date of request</th>
           <th>Return</th>
         </tr>
 
           <tr *ngFor="let item of items">
             <td>{{item.itemName}}</td>
+            <td>{{item.date}}</td>
            
           <td class="return">
             <button (click)="return(user.employee.fiscalCode+'-'+item.itemName)">Return</button> 

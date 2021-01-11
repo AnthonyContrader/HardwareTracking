@@ -11,5 +11,7 @@ export class ItemLentDTO{
 
     fiscalCodeForLent: string;
 
+    date: string;
+
 
 }

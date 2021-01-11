@@ -57,6 +57,7 @@ export class ItemsToRequestComponent implements OnInit {
                   this.itemtorequest.lastNameOwner = lastName;
                   this.itemtorequest.fiscalCodeForLent = fiscalCodeForLent;
                   this.itemtorequest.itemName = itemName;
+                  this.itemtorequest.date= "";
 
             this.request(this.itemtorequest);
                   }

@@ -11,6 +11,7 @@
           <th>Owner's First  Name</th>
           <th>Owner's Fiscal Code</th>
           <th>Item Name</th>
+          <th>Date of request</th>
         </tr>
 
           <tr *ngFor="let itemlent of itemsLent">
@@ -18,6 +19,7 @@
             <td>{{itemlent.firstNameOwner}}</td>
             <td>{{itemlent.fiscalCodeForLent}}</td>
             <td>{{itemlent.itemName}}</td>
+            <td>{{itemlent.date}}</td>
 
         </tr>
       </table>

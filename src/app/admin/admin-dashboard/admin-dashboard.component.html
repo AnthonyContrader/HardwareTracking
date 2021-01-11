@@ -1,7 +1,56 @@
 <div class= "container">
   <h1 style="text-align: center">Welcome {{user.username}}</h1>
-  <p>
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-  </p>
+  <div style="text-align: center;">
+    <!-- User's Card -->
+    <div class="card">
+      <a [routerLink]="['/admin-dashboard/users']">
+        <div class="col-md-4" style="margin:0 auto; margin-top: 30px;">
+          <i class="fas fa-users users" style="padding-left: 21px; padding-right: 21px;"></i>
+        </div>
+        <div class="col-md-8 card-body">
+          <h3 class="card-title">Users</h3>
+          <p class="card-text">Access this page in order to be able to execute the CRUD options for Users. (Create, Read, Update, Delete).</p>
+        </div>
+      </a>
+    </div>
+    
+    <!-- Employee's Card -->
+    <div class="card space">
+      <a [routerLink]="['/admin-dashboard/employees']">
+        <div class="col-md-4" style="margin-top: 30px; margin-right: 0px; margin-left: 0;">
+          <i class="fas fa-address-card employees" style="padding-left: 23px; padding-right: 23px;"></i>
+        </div>
+        <div class="col-md-8 card-body">
+          <h3 class="card-title">Employees</h3>
+          <p class="card-text">Access this page in order to be able to execute the CRUD options for Employees. (Create, Read, Update, Delete).</p>
+        </div>
+       </a>
+    </div>
+
+    <!-- Item's Card -->
+    <div class="card">
+      <a [routerLink]="['/admin-dashboard/items']">
+        <div class="col-md-4" style="margin-top: 30px; margin-right: 0px; margin-left: 0;">
+          <i class="fas fa-book items"  style="padding-left: 27px; padding-right: 28px;"></i>
+        </div>
+        <div class="col-md-8 card-body">
+          <h3 class="card-title">Items</h3>
+          <p class="card-text">Access this page in order to be able to execute the CRUD options for Items. (Create, Read, Update, Delete).</p>
+        </div>
+       </a>
+    </div>
+
+    <!-- Item's Tracking Card -->
+    <div class="card space">
+      <a [routerLink]="['/admin-dashboard/itemstracking']">
+        <div class="col-md-4" style="margin-top: 30px; margin-right: 0px; margin-left: 0;">
+          <i class="fas fa-chart-pie itemstracking" style="padding-left: 24px; padding-right: 24px;"></i>
+        </div>
+        <div class="col-md-8 card-body">
+          <h3 class="card-title">Items Tracking</h3>
+          <p class="card-text">Access this page in order to be able to manage the Items Tracking. You can then download a list of all the items that have been lent.</p>
+        </div>
+       </a>
+    </div>
+  </div>
 </div>

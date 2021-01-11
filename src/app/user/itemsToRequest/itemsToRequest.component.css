@@ -73,12 +73,8 @@ input, select{
 /*---------------------
 	    Buttons
 ---------------------*/
-button {
+.btn-active {
 	border: 0;
-	padding: 6px 12px;
-}
-
-.request button {
     text-align: center;
     transition: 0.5s;
     background-size: 200% auto;
@@ -86,16 +82,62 @@ button {
     box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
 	display: block;
 	padding: 5px 17px;
-	background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);
+	background-image: linear-gradient(to right, #00c6ff 0%, #0044ff  51%, #00c6ff  100%);
 	margin:0 auto;
     display:block;
 }
 
-.request button:hover {
+.btn-active:hover {
 	background-position: right center;
     color: #fff;
 	text-decoration: none;
 	background-color: transparent;
+}
+
+/*.btn-disabled {
+	border: 0;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: black;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.75);
+	display: block;
+	padding: 5px 10px;
+	background-image: linear-gradient(to right, #b6edfc 0%, #777777  51%, #9ee7fc  100%);
+	line-height: -20px;
+	margin:0 auto;
+	display:block;
+}
+
+.btn-disabled:hover {
+	background-position: right center;
+    color: #fff;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+.btn-disabled {
+	text-align: center;
+	padding: 5px 10px;
+	border: 2px solid black;
+	background-color: white;
+}*/
+
+.btn-disabled {
+	border: 0;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 8px 0 rgba(50, 50, 50, 0.50);
+	display: block;
+	padding: 5px 10px;
+	background-color: transparent;
+	background-image: linear-gradient(to right, #00c8ffab 0%, #0073ffa6  51%, #00c8ffb2  100%);
+	line-height: -20px;
+	margin:0 auto;
+	display:block;
+	cursor: not-allowed;
 }
 
 /*---------------------
@@ -107,4 +149,16 @@ button {
 	padding: 0;
 	box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
 	-webkit-box-shadow: 0 0 40px 0 rgba(0,0,0,.15);
+}
+
+/*---------------------
+	   Warning
+---------------------*/
+.avviso{
+	font-size: large;
+}
+
+.attenzione{
+	font-size: xx-large;
+	color: firebrick;
 }

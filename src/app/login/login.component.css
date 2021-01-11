@@ -1,10 +1,31 @@
 * {
     font-size: medium;
+    text-align: center;
 }
 
+/*-------------------
+        Logo
+-------------------*/
+.logo {
+    margin-top: 160px;
+    width: 21%;
+}
+
+/*-------------------
+   Container Fluid
+-------------------*/
+.container-fluid{
+    background-image: url("../../assets/index.png");
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+/*-------------------
+        Form
+-------------------*/
 form{
-    margin-top:270px;
-    width: 55%;
+    margin-top:20px;
     padding: 10px;
     border-radius:0;
     border-color: crimson;
@@ -13,39 +34,34 @@ form{
     box-shadow: 0px 3px 15px 5px rgb(128, 67, 67);
     -webkit-box-shadow: 0px 3px 15px 5px rgb(128, 67, 67);
     text-align: center;
+    width: 400px;
 }
 
-img{
-    position: inherit;
-    width:50%;
-    margin: 12%;
+p {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff712f;
+    margin-bottom: 6%;
+    position: relative;
+    top: -6px;
 }
 
-/* .form-group:hover, .form-group::selection, .form-group:checked, .form-group:focus{
-    border: 0;
-    background-color: darkorange;
-    border-radius: 0;
-    color: white;
-    border-bottom: 1px solid crimson;
-}*/
-
-.container-fluid{
-    background-image: url("../../assets/index.png");
-    background-size: cover;
-    height: 100vh;
-}
-input::placeholder{
-    color: orange;
-}
 .form-group {
     display: flex;
     margin-bottom: 4%;
+    border-bottom: 1px solid orange;
+    margin-bottom: 20px;
 }
+
 i {
     padding: 2.4%;
     color: orange;
-    border-bottom: 1px solid orange;
 }
+
+.form-control::placeholder{
+    color: orange;
+}
+
 .form-control{
     border: none;
     border-width: 0; 
@@ -53,18 +69,13 @@ i {
     border-radius: 0%;
     color: orange;
     background-color: transparent;
-    border-bottom: 1px solid orange;
-    width: 89%;
     float: right;
+    text-align: left;
 }
 
-p{
-    font-size: 2em;
-    font-weight: bold;
-    color: #ff712f;
-    margin-bottom: 6%;
-}
-
+/*-------------------
+       Button
+-------------------*/
 button {
     color: white;
     font-weight: bolder;
@@ -79,12 +90,14 @@ button {
 }
 
 button:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     color: #fff;
     text-decoration: none;
 }
 
-/* --- Mobile Version --- */
+/*--------------------
+    Mobile Version
+--------------------*/
 @media only screen and (max-width: 1750px) {
     form {
         text-align: center;

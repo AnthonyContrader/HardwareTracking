@@ -26,6 +26,15 @@ export class AdminMenuComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
+
+  dashboardcollapse(){
+      this.isUserCollapsed = false;
+      this.isEmployeeCollapsed = false;
+      this.isItemCollapsed = false;
+      this.isItemLentCollapsed = false;
+      this.isAccountCollapsed = false;
+  }
+
   userscollapse() {
     if (this.isUserCollapsed === false) {
       this.isUserCollapsed = true;

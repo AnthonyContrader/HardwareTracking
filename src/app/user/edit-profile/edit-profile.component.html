@@ -1,33 +1,17 @@
 <body><br><br><br><br><br><br>
-    <table>
-        <tr>
-            <td><img src="../../../assets/user.svg" alt="Profile Image"></td>
-            <td>
-                <h3>Username</h3>
-                <i class="fas fa-user"></i> <input [(ngModel)]="user.username"><br><br>
-                <h3>Password</h3>
-                <i class="fas fa-key"></i> <input [(ngModel)]="user.password" placeholder="Insert you New Password">
-            </td>
-        </tr>
-        <div class="btn"><button (click)="update(user)">Update</button></div>
-    </table>
-
-    <!--<div class="container d-flex justify-content-center">
+    <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img src="../../../assets/user.svg" alt="Profile Image">
-            </div>
-            <div class="col-md-8">
-                <h3>Username</h3>
-                <i class="fas fa-user"></i> <input [(ngModel)]="user.username"><br><br>
-                <h3>Password</h3>
-                <i class="fas fa-key"></i> <input [(ngModel)]="user.password" placeholder="Insert you New Password">
-            </div>
+            <img src="../../../assets/users/{{user.employee.firstName}}{{user.employee.lastName}}.svg" alt="No Image Found">
+            <h2>{{user.employee.firstName}} {{user.employee.lastName}}</h2>
+        </div>
+        <div class="row">
+            <h3 class="text">Username</h3>
+            <i class="fas fa-user"></i> <input class="input" [(ngModel)]="user.username"><br><br>
+            <h3 class="text2">Password</h3>
+            <i class="fas fa-key"></i> <input class="input" [(ngModel)]="user.password">
         </div><br>
         <div class="row">
-            <div class="col-md-auto">
-                <button (click)="update(user)">Update</button>
-            </div>
+            <a href=""><button (click)="update(user)">Update</button></a>
         </div>
-    </div>-->
+    </div>
 </body>

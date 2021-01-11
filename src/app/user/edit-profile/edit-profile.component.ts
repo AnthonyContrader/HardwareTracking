@@ -22,6 +22,7 @@ export class EditProfileComponent implements OnInit {
 
   update(user: UserDTO){
     this.usersComponent.update(user);
+    alert("La modifica e' stata apporta con successo! \n Effettuare il login con le nuove credenziali")
   }
 
 }

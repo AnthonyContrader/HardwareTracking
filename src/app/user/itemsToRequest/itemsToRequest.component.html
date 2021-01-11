@@ -17,9 +17,15 @@
             <td>{{item.price}}</td>
            
           <td class="request">
-            <button [disabled] ="verifyItemRequested(item.name)"
-                    (click)="createRequest(user.employee.firstName, 
+            <ng-template [ngIf]="!verifyItemRequested(item.name)" [ngIfElse]="isDisabled">
+              <button class="btn-active" (click)="createRequest(user.employee.firstName, 
                     user.employee.lastName, item.name, user.employee.fiscalCode)">Request</button>
+            </ng-template>
+            <ng-template #isDisabled>
+              <button class="btn-disabled" [disabled] ="verifyItemRequested(item.name)"
+                    (click)="createRequest(user.employee.firstName, 
+                    user.employee.lastName, item.name, user.employee.fiscalCode)"><em>Requested</em></button>
+            </ng-template>
           </td>
         </tr>
       </table>
@@ -30,14 +36,10 @@
 
     </div>
   </div>
+</div><br><br><br>
+
+<div position="auto" text-align="center">
+  <p class="attenzione"><b>Attenzione!</b></p>
+  <p class="avviso">La nostra politica consente la richiesta di <b>un solo oggetto</b> per tipo per dipendente.</p>
+  <p class="avviso">In caso tu abbia già richiesto un articolo, il pulsante di richiesta sarà disabilitato.</p>
 </div>
-
-      <br><br><br>
-
-      <div position=auto text-align = center>
-        <p class="attenzione"><b>Attenzione!</b></p>
-        <p class="avviso">La nostra politica consente la richiesta di <b>un solo oggetto</b> per tipo per dipendente.</p>
-        <p class="avviso">In caso tu abbia già richiesto un articolo, il pulsante di richiesta sarà disabilitato.</p>
-      </div>
-
-

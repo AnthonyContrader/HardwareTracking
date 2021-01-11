@@ -25,6 +25,11 @@ export class UserMenuComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
+  dashboardcollapse(){
+    this.isRequestCollapsed = false;
+    this.isReturnCollapsed = false;
+    this.isAccountCollapsed = false;
+  }
 
   requestscollapse() {
     if (this.isRequestCollapsed === false) {

@@ -5,3 +5,67 @@ p {
 .container {
     padding-top: 3em;
 }
+
+/*-----------------------------
+			Cards
+-----------------------------*/
+.card {
+	width: 400px;
+	border-radius: 7px;
+	box-shadow: 0px 5px 20px -10px #000000;
+    margin-top: 40px;
+    text-align: center;
+    display: inline-flex;
+    padding: 20px;
+    padding-left: 10px;
+}
+
+.card:hover {
+	transform: scale(1.03);
+	transition: 200ms;
+}
+
+.space {
+	margin-left: 20px;
+}
+
+i {
+	font-size: 34px;
+    text-align: center;
+    padding: 24px;
+    border-radius: 50%;
+}
+
+.card-body {
+	padding: 10px;
+    padding-top: 20px;
+}
+
+.users {
+    background-color: rgba(255, 166, 0, 0.3);
+    color: orange;
+}
+
+.employees {
+    background-color: #1bd13f4f;
+    color: #1bd140;
+}
+
+.items {
+    background-color: #1bc8d141;
+    color: #1bc8d1;
+}
+
+.itemstracking {
+    background-color: #d11b1b42;
+    color: #d11b1b;
+}
+
+.card-title {
+    color: black;
+    font-weight: bold;
+}
+
+.card-text {
+    color: grey;
+}

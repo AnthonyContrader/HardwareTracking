@@ -13,6 +13,7 @@ export class UserMenuComponent implements OnInit {
   isClientCollapsed = false;
   isAccountCollapsed = false;
 
+
   constructor(private router: Router) {
   }
 
@@ -23,6 +24,7 @@ export class UserMenuComponent implements OnInit {
     localStorage.clear();
     this.router.navigateByUrl('');
   }
+
 
   requestscollapse() {
     if (this.isRequestCollapsed === false) {

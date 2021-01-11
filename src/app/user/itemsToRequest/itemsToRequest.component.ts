@@ -16,12 +16,29 @@ export class ItemsToRequestComponent implements OnInit {
   user: UserDTO;
   items: ItemDTO[];
   itemtorequest: ItemLentDTO = new ItemLentDTO();
+  myRequests: ItemLentDTO[];
 
   constructor(private service: ItemService, private itemLentService: ItemLentService) { }
 
   ngOnInit() {
     this.getItems();
+    //this.getMyRequests();
+    console.log(this.myRequests);
     this.user = JSON.parse(localStorage.getItem('currentUser'));
+    this.getMyRequests(this.user.employee.fiscalCode);
+  }
+
+  getMyRequests(fiscalCode: string) {
+    this.itemLentService.getMyRequests(fiscalCode).subscribe(myRequests => this.myRequests = myRequests);
+  }
+
+  verifyItemRequested(itemName: string): boolean{
+
+    for(let item of this.myRequests){
+      if(item.itemName === itemName)
+        return true;
+    }
+    return false;
   }
 
   getItems() {

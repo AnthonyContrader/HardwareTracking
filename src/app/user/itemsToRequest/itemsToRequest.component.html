@@ -17,7 +17,8 @@
             <td>{{item.price}}</td>
            
           <td class="request">
-            <button (click)="createRequest(user.employee.firstName, 
+            <button [disabled] ="verifyItemRequested(item.name)"
+                    (click)="createRequest(user.employee.firstName, 
                     user.employee.lastName, item.name, user.employee.fiscalCode)">Request</button>
           </td>
         </tr>

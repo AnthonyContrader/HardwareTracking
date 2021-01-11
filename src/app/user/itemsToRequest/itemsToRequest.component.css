@@ -61,6 +61,15 @@ input, select{
 	outline: none;
 }
 
+.avviso{
+	font-size: large;
+}
+
+.attenzione{
+	font-size: xx-large;
+	color: firebrick;
+}
+
 /*---------------------
 	    Buttons
 ---------------------*/

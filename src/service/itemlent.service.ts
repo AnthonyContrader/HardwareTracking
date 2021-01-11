@@ -44,8 +44,12 @@ export class ItemLentService{
     return this.http.delete('http://localhost:8080/track/return/' + info);
   }
 
-  download(): Observable<any>{
-    return this.http.get('http://localhost:8080/track/download');
+  downloadStandard(): Observable<any>{
+    return this.http.get('http://localhost:8080/track/downloadstandard');
+  }
+
+  downloadTable(): Observable<any>{
+    return this.http.get('http://localhost:8080/track/downloadtable');
   }
 
 

@@ -25,8 +25,12 @@ export class ItemsTrackingComponent implements OnInit {
     this.service.getAll().subscribe(itemsLent => this.itemsLent = itemsLent);
   }
 
-  download(){
-    this.service.download().subscribe(() => this.itemsLent);
-    /*alert("\t\t     Download Completato! \nControllare all'interno della cartella 'src' del Back");*/
+  downloadStandard(){
+    this.service.downloadStandard().subscribe(() => this.itemsLent);
+  }
+
+  downloadTable(){
+    this.service.downloadTable().subscribe(() => this.itemsLent);
+    
   }
 }

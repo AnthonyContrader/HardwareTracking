@@ -17,6 +17,10 @@ table {
 	-webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,.1);
 }
 
+.space{
+	margin-right: 3rem;
+}
+
 th, td {
 	text-align: center;
 	font-size: 16px;
